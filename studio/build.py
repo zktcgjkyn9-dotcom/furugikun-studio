@@ -11,7 +11,7 @@ import multiprocessing
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-import views as V, rig, tts
+import views as V, rig, tts, bgm
 from script_gen import build_script
 
 W, H, FPS = 1080, 1920, 30
@@ -243,12 +243,32 @@ def load_photos(item_dir):
     return out
 
 
+def pick_bgm(item, total, work):
+    """item.json の bgm: "auto"(既定・自動作曲) / "none"(なし) / bgm/フォルダのファイル名"""
+    choice = item.get('bgm', 'auto')
+    if choice == 'none':
+        return None, None, 'none'
+    if choice != 'auto':
+        f = ROOT / 'bgm' / choice
+        if not f.exists():
+            raise FileNotFoundError(f'BGMファイルがありません: bgm/{choice}')
+        cred_file = ROOT / 'bgm' / 'credits.json'
+        credits = json.loads(cred_file.read_text()) if cred_file.exists() else {}
+        if choice not in credits:
+            raise ValueError(f'bgm/credits.json に {choice} の出典・利用条件を書いてください')
+        return f, credits[choice] or None, choice
+    path = work / 'bgm.wav'
+    info = bgm.compose(total, item['item_id'], str(path))
+    return path, None, dict(type='auto', **info)
+
+
 def source_hash(item_dir):
     h = hashlib.sha256()
     for p in [item_dir / 'item.json'] + sorted((item_dir / 'photos').glob('*')):
         if p.is_file():
             h.update(p.name.encode()); h.update(p.read_bytes())
-    h.update((HERE / 'build.py').read_bytes()); h.update((HERE / 'script_gen.py').read_bytes())
+    for f in ('build.py', 'script_gen.py', 'bgm.py', 'rig.py'):
+        h.update((HERE / f).read_bytes())
     return h.hexdigest()[:16]
 
 
@@ -283,13 +303,26 @@ def build(item_id, mock=False):
     with ProcessPoolExecutor(mp_context=multiprocessing.get_context('fork')) as ex:
         list(ex.map(_render, [(i, str(work)) for i in range(n)], chunksize=8))
     mp4 = out / f'furugikun_{item_id}.mp4'
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', str(work / 'f%05d.png'),
-                    '-i', str(out / 'voice.wav'), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
-                    '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', str(mp4)], check=True)
-    (out / 'script.json').write_text(json.dumps(dict(speaker=spk[1], style=spk[2], total_sec=round(total, 2),
+    music, music_credit, music_info = pick_bgm(item, total, work)
+    cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', str(work / 'f%05d.png'),
+           '-i', str(out / 'voice.wav')]
+    if music:
+        # 声が出ている間はBGMを自動で下げる(ダッキング)
+        vol = float(item.get('bgm_volume', 0.22))
+        cmd += ['-stream_loop', '-1', '-i', str(music), '-filter_complex',
+                '[1:a]aresample=44100,aformat=channel_layouts=stereo,asplit=2[v1][v2];'
+                f'[2:a]aresample=44100,aformat=channel_layouts=stereo,volume={vol},afade=t=out:st={max(0, total - 1.2):.2f}:d=1.2[m];'
+                '[m][v1]sidechaincompress=threshold=0.02:ratio=5:attack=15:release=350[md];'
+                '[v2]volume=1.4[vv];[vv][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]',
+                '-map', '0:v', '-map', '[a]']
+    cmd += ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
+            '-c:a', 'aac', '-b:a', '160k', '-t', f'{total:.3f}', '-movflags', '+faststart', str(mp4)]
+    subprocess.run(cmd, check=True)
+    (out / 'script.json').write_text(json.dumps(dict(speaker=spk[1], style=spk[2], total_sec=round(total, 2), bgm=music_info,
                                                      scenes=scenes, chips=chips), ensure_ascii=False, indent=2))
     tags = ' '.join(f'#{x}' for x in [item.get('brand', ''), '古着', item.get('category', '')] if x)
-    (out / 'post.txt').write_text(f"{item['title']}\n{price_label(item)}\n\n{tags}\n\n音声：{CREDIT}\n")
+    credits = f"音声：{CREDIT}" + (f"\nBGM：{music_credit}" if music_credit else "")
+    (out / 'post.txt').write_text(f"{item['title']}\n{price_label(item)}\n\n{tags}\n\n{credits}\n")
     if not mock:
         (out / 'source.hash').write_text(source_hash(item_dir))
     shutil.rmtree(work, ignore_errors=True)

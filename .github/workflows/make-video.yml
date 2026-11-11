@@ -9,7 +9,7 @@ on:
         default: ""
   push:
     branches: [main]
-    paths: ["items/**"]
+    paths: ["items/**", "studio/**", "bgm/**"]
 
 concurrency:
   group: make-video

@@ -7,3 +7,4 @@
 - 完成品：`outputs/<商品ID>/furugikun_<商品ID>.mp4`（台本 `script.json`、投稿文 `post.txt`）
 - 音声：VOICEVOX（白上虎太郎）。動画を公開するときは「VOICEVOX:白上虎太郎」のクレジットが必要です（`post.txt` と動画内に記載済み）。
 - キャラクター：`studio/assets/master_front.svg` が古着くんのマスター。変更しないこと。
+- BGM：自動作曲のオリジナル（既定）。自分の曲を使う・BGMなしにする方法は `bgm/README.md`。声が出ている間はBGMが自動で小さくなります。
