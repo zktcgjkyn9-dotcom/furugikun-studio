@@ -2,6 +2,11 @@
   "speaker": "白上虎太郎",
   "style": "ふつう",
   "total_sec": 20.87,
+  "bgm": {
+    "type": "auto",
+    "bpm": 96,
+    "progression": 0
+  },
   "scenes": [
     {
       "kind": "hello",
