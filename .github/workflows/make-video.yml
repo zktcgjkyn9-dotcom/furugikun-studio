@@ -1,0 +1,71 @@
+name: 古着くん動画を作る
+
+on:
+  workflow_dispatch:
+    inputs:
+      item_id:
+        description: "商品ID（例: m66942123606）。空欄なら未作成・変更のある商品すべて"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths: ["items/**"]
+
+concurrency:
+  group: make-video
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: VOICEVOXエンジンを起動
+        run: |
+          docker run -d --name voicevox -p 127.0.0.1:50021:50021 voicevox/voicevox_engine:cpu-latest
+          for i in $(seq 1 120); do
+            if curl -sf http://127.0.0.1:50021/version; then echo " 起動OK"; break; fi
+            sleep 2
+          done
+          curl -sf http://127.0.0.1:50021/version
+
+      - name: 描画ツールと日本語フォントを入れる
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends librsvg2-bin ffmpeg fonts-noto-cjk fonts-noto-cjk-extra
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 動画を作る
+        env:
+          ITEM_ID: ${{ inputs.item_id }}
+        run: |
+          if [ -n "$ITEM_ID" ]; then
+            python studio/build.py "$ITEM_ID"
+          else
+            python studio/build.py --pending
+          fi
+
+      - name: できた動画を保存（Actionsの成果物）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: furugikun-videos
+          path: outputs/
+          if-no-files-found: ignore
+
+      - name: できた動画をリポジトリに保存
+        run: |
+          git config user.name "furugikun-bot"
+          git config user.email "furugikun-bot@users.noreply.github.com"
+          git add outputs
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "動画を作成: ${ITEM_ID:-pending}"
+          git push
