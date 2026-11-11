@@ -33,7 +33,11 @@ def build_script(item):
 
     # 冒頭フック:大きい数字があれば数字で、なければ問いかけ
     waist = m.get("ウエスト")
-    if waist and waist >= 100:
+    hl = item.get("highlight")
+    if hl:
+        scenes.append(dict(kind="hook", voice=f"{color}の{brand_kana}、{hl}！？",
+                           caption=f"{color}の{brand_kana}、\n{hl}！？", expr="驚き"))
+    elif waist and waist >= 100:
         scenes.append(dict(kind="hook", voice=f"{color}の{brand_kana}、ウエスト{_cm(waist)}センチ！？",
                            caption=f"{color}の{brand_kana}、\nウエスト{_cm(waist)}cm！？", expr="驚き"))
     else:
@@ -42,11 +46,15 @@ def build_script(item):
 
     # 商品の正体
     mat = f"{material}地の" if material else ""
-    scenes.append(dict(kind="p1", voice=f"定番の、{mat}{cat}。",
-                       caption=f"定番の{mat}\n{cat}{model}", expr="通常"))
+    if model:
+        scenes.append(dict(kind="p1", voice=f"定番の、{mat}{cat}。",
+                           caption=f"定番の{mat}\n{cat}{model}", expr="通常"))
+    else:
+        scenes.append(dict(kind="p1", voice=f"{mat}、{cat}。",
+                           caption=f"{mat}\n{cat}", expr="通常"))
 
     # サイズ感・シルエット
-    sw = silhouette_word(m)
+    sw = item.get("fit") or silhouette_word(m)
     if sw and "裾幅" in m:
         scenes.append(dict(kind="p2", voice=f"ワタリ{_cm(m['ワタリ'])}センチ、裾幅{_cm(m['裾幅'])}センチの、{sw}シルエット！",
                            caption=f"ワタリ{_cm(m['ワタリ'])}cm・裾幅{_cm(m['裾幅'])}cmの\n{sw}シルエット", expr="通常"))
@@ -63,16 +71,19 @@ def build_script(item):
                            caption=f"一押しは\n{material}の生地感！", expr="自信のある表情"))
 
     # 締め:状態に傷や汚れがあれば正直に写真確認を促す
-    if "傷" in cond or "汚れ" in cond:
+    if "目立つ" in cond:
         scenes.append(dict(kind="cta", voice="使用感はあるから、写真もチェックしてね！",
                            caption="使用感はあるので\n写真をチェック！", expr="笑顔"))
+    elif "傷" in cond or "汚れ" in cond:
+        scenes.append(dict(kind="cta", voice="細かい状態は、写真でチェックしてね！",
+                           caption="細かい状態は\n写真でチェック！", expr="笑顔"))
     else:
         scenes.append(dict(kind="cta", voice="気になったら、プロフのリンクからチェックしてね！",
                            caption="気になったら\nプロフのリンクから！", expr="笑顔"))
     scenes.append(dict(kind="bye", voice="またね！", caption="またね！", expr="笑顔"))
 
     chips = {}
-    chips["p1"] = f"① {brand} {model} {material}地".replace("  ", " ").strip()
+    chips["p1"] = " ".join(x for x in ["①", brand, model, f"{material}地" if material else "", "" if model else (hl or "")] if x)
     if sw:
         chips["p2"] = f"② ワタリ{_cm(m['ワタリ'])}cmの{sw}"
     chips["push"] = f"③ {color}の色落ち" if "色落ち" in notes else f"③ {material}の生地感"

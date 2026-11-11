@@ -217,8 +217,7 @@ class Video:
         z, fx, fy = st['zoom'], st['fx'], st['fy']
         body = f'<g transform="translate({fx:.1f} {fy:.1f}) scale({z:.4f}) translate({-fx:.1f} {-fy:.1f})">{s}</g>'
         top = (f'<rect y="0" width="{W}" height="150" fill="{INK}"></rect>'
-               + tb('古着くんの今日の一着', 60, 98, 52, 'start', 700, '#F4EFE6', INK, 0)
-               + tb(CREDIT, 30, H - 24, 26, 'start', 700, '#5A4334', '#F2EFE9', 6))
+               + tb('古着くんの今日の一着', 60, 98, 52, 'start', 700, '#F4EFE6', INK, 0))
         return (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" '
                 f'viewBox="0 0 {W} {H}" font-family="{FONT}">{V.DEFS}{body}{top}</svg>')
 
