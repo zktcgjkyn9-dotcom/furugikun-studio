@@ -9,7 +9,7 @@ on:
         default: ""
   push:
     branches: [main]
-    paths: ["items/**", "studio/**", "bgm/**"]
+    paths: ["items/**", "studio/**", "bgm/**", "requirements.txt"]
 
 concurrency:
   group: make-video
@@ -42,6 +42,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Pythonの部品を入れる
+        run: pip install -r requirements.txt
 
       - name: 動画を作る
         env:
