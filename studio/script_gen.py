@@ -83,7 +83,7 @@ def build_script(item):
     scenes.append(dict(kind="bye", voice="またね！", caption="またね！", expr="笑顔"))
 
     chips = {}
-    chips["p1"] = " ".join(x for x in ["①", brand, model, f"{material}地" if material else "", "" if model else (hl or "")] if x)
+    chips["p1"] = " ".join(x for x in ["①", brand, model or hl or "", f"{material}地" if (material and not (hl and not model)) else ""] if x)
     if sw:
         chips["p2"] = f"② ワタリ{_cm(m['ワタリ'])}cmの{sw}"
     chips["push"] = f"③ {color}の色落ち" if "色落ち" in notes else f"③ {material}の生地感"
