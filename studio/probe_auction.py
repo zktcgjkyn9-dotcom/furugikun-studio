@@ -1,38 +1,36 @@
-import sys, asyncio, re
+import sys, asyncio, json
 from playwright.async_api import async_playwright
 UA = ("Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1")
+def walk(o, path=""):
+    if isinstance(o, dict):
+        for k, v in o.items():
+            yield from walk(v, f"{path}.{k}")
+    elif isinstance(o, list):
+        for i, v in enumerate(o[:3]):
+            yield from walk(v, f"{path}[{i}]")
+    else:
+        yield path, o
 async def main(item):
     async with async_playwright() as p:
         b = await p.chromium.launch()
-        ctx = await b.new_context(user_agent=UA, locale="ja-JP", timezone_id="Asia/Tokyo", viewport={"width": 430, "height": 932})
+        ctx = await b.new_context(user_agent=UA, locale="ja-JP", timezone_id="Asia/Tokyo")
         pg = await ctx.new_page()
+        got = []
+        async def on_resp(r):
+            if "application/json" in (r.headers.get("content-type") or "") and item in r.url:
+                try:
+                    got.append((r.url, await r.json()))
+                except Exception:
+                    pass
+        pg.on("response", on_resp)
         await pg.goto(f"https://jp.mercari.com/item/{item}", wait_until="networkidle", timeout=60000)
-        await pg.wait_for_timeout(1500)
-        try:
-            await pg.get_by_text("日本", exact=True).first.click(timeout=4000)
-            await pg.get_by_text("続ける", exact=True).first.click(timeout=4000)
-            await pg.wait_for_timeout(1500)
-            await pg.reload(wait_until="networkidle"); await pg.wait_for_timeout(1500)
-            print("地域=日本を選択")
-        except Exception as e:
-            print("地域選択なし", e)
-        body = await pg.inner_text("body")
-        print("=====ITEM=====", item)
-        for kw in ("開始", "入札", "終了", "残り", "現在", "即決", "オークション", "お住まい"):
-            for m in list(re.finditer(kw, body))[:3]:
-                print(f"[{kw}]", body[max(0, m.start()-60):m.start()+80].replace("\n", " | "))
-        ids = await pg.eval_on_selector_all("[data-testid]", "els => [...new Set(els.map(e => e.getAttribute('data-testid')))]")
-        print("TESTIDS", [x for x in ids if any(k in x for k in ("auction","bid","price","time","checkout","countdown"))])
-        for sel in ('[data-testid="checkout-button-container"]', '[data-testid="price"]'):
-            el = await pg.query_selector(sel)
-            print(sel, (await el.inner_text()).replace("\n"," | ") if el else None)
-        bh = await pg.query_selector('[data-testid="bid-history-button"]')
-        if bh:
-            print("=====BIDBTN=====", await bh.inner_text())
-            await bh.click(); await pg.wait_for_timeout(2500)
-            body = await pg.inner_text("body")
-            i = body.find("入札")
-            print("=====BIDHIST=====", body[max(0,i-200):i+1500])
+        await pg.wait_for_timeout(2000)
+        print("=====ITEM=====", item, len(got))
+        for url, js in got:
+            print("URL", url.split("?")[0])
+            for path, v in walk(js):
+                if any(k in path.lower() for k in ("auction", "bid", "price", "start", "end", "expire", "status", "num_", "count", "like", "comment")):
+                    print("  ", path, "=", str(v)[:80])
         await b.close()
 for it in sys.argv[1:]:
     asyncio.run(main(it))
