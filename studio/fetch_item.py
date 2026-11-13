@@ -58,9 +58,9 @@ async def render(url):
             el = await pg.query_selector(sel)
             return (await el.inner_text()).strip() if el else ""
         seller = ""
-        el = await pg.query_selector('[data-testid="seller-link"]')
+        el = await pg.query_selector('a[href*="/user/profile/"]')
         if el:
-            seller = await el.evaluate("e => e.href || (e.querySelector('a') || {}).href || ''")
+            seller = await el.evaluate("e => e.href")
         data = {
             "name": await text('[data-testid="name"]'),
             "price": await text('[data-testid="price"]'),
