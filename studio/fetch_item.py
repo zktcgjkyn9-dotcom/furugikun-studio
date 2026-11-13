@@ -53,6 +53,11 @@ def probe(item_id):
     for ld in lds:
         print(json.dumps(ld, ensure_ascii=False)[:1500])
     print("__NEXT_DATA__" in page, "next data present")
+    for kw in ("股下", "ウエスト", "商品の状態", "やや傷", "itemCondition", '"description"', "ブランド", "モス"):
+        for mm in list(re.finditer(re.escape(kw), page))[:2]:
+            a = max(0, mm.start() - 150); print(f"[ctx {kw}]", page[a:mm.start() + 250].replace("\n", " ")[:400])
+    scripts = re.findall(r'<script[^>]*>(.*?)</script>', page, re.S)
+    print("scripts", len(scripts), "largest", sorted(len(x) for x in scripts)[-5:])
     imgs = sorted(set(re.findall(r'https://static\.mercdn\.net/[^"\'\s?]+', page)))
     print("static images in html:", len(imgs), imgs[:12])
     for n in range(1, 4):
