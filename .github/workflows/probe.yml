@@ -3,11 +3,15 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["studio/fetch_item.py", ".github/workflows/probe.yml"]
+    paths: ["studio/fetch_item.py", "studio/render_probe.py", ".github/workflows/probe.yml"]
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: python3 studio/fetch_item.py m47148845481
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install playwright==1.49.1 && python -m playwright install --with-deps chromium
+      - run: python studio/render_probe.py m47148845481
