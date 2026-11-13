@@ -271,11 +271,11 @@ def source_hash(item_dir):
     return h.hexdigest()[:16]
 
 
-def build(item_id, mock=False):
+def build(item_id, mock=False, skip_sold=False):
     global _VIDEO
     item_dir = ROOT / 'items' / item_id
     item = json.loads((item_dir / 'item.json').read_text())
-    if item.get('status') == 'sold':
+    if skip_sold and item.get('status') == 'sold':
         print('売り切れのためスキップ', item_id); return None
     out = ROOT / 'outputs' / item_id; out.mkdir(parents=True, exist_ok=True)
     work = ROOT / '.work' / item_id
@@ -332,16 +332,22 @@ def build(item_id, mock=False):
 if __name__ == '__main__':
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     mock = '--mock-tts' in sys.argv
-    if '--pending' in sys.argv:
+    pending_mode = '--pending' in sys.argv or '--list-pending' in sys.argv
+    if pending_mode:
         ids = []
         for p in sorted((ROOT / 'items').iterdir()):
             if not (p / 'item.json').exists():
                 continue
             hf = ROOT / 'outputs' / p.name / 'source.hash'
+            it = json.loads((p / 'item.json').read_text())
+            if it.get('status') == 'sold':
+                continue
             if not hf.exists() or hf.read_text().strip() != source_hash(p):
                 ids.append(p.name)
+        if '--list-pending' in sys.argv:
+            print(' '.join(ids)); sys.exit(0)
         print('作成対象:', ids or 'なし')
     else:
         ids = args or [p.name for p in (ROOT / 'items').iterdir() if (p / 'item.json').exists()]
     for i in ids:
-        build(i, mock)
+        build(i, mock, skip_sold=pending_mode)
