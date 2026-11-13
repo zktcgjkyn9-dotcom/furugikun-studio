@@ -26,7 +26,9 @@ BRAND_KANA = {
 COLORS = [("ハミルトンブラウン", "ブラウン"), ("ダックブラウン", "ブラウン"), ("ブラック", "黒"), ("黒", "黒"),
           ("ホワイト", "白"), ("モス", "モス"), ("ブラウン", "ブラウン"), ("ネイビー", "ネイビー"), ("グレー", "グレー"),
           ("カーキ", "カーキ"), ("ベージュ", "ベージュ"), ("オリーブ", "オリーブ"), ("グリーン", "グリーン"),
-          ("レッド", "赤"), ("インディゴ", "インディゴ"), ("ブルー", "ブルー"), ("タン", "タン")]
+          ("レッド", "赤"), ("インディゴ", "インディゴ"), ("ブルー", "ブルー"), ("タン", "タン"),
+          ("BLACK", "黒"), ("MOSS", "モス"), ("MOS", "モス"), ("BROWN", "ブラウン"), ("NAVY", "ネイビー"),
+          ("GRAY", "グレー"), ("GREY", "グレー"), ("KHAKI", "カーキ"), ("OLIVE", "オリーブ"), ("WHITE", "白")]
 MATERIALS = ["ダック", "デニム", "コーデュロイ", "スウェット", "ナイロン", "フリース", "レザー", "ツイル", "キャンバス", "ウール", "ネル"]
 HIGHLIGHTS = ["ダブルニー", "デトロイト", "アクティブジャケット", "チョアコート", "サンタフェ", "リメイク"]
 MEASURE_KEYS = ["着丈", "身幅", "肩幅", "袖丈", "ウエスト", "股上", "股下", "ワタリ", "わたり", "裾幅", "総丈"]
@@ -93,6 +95,13 @@ def clean_value(v, label):
     return re.sub(r"\s+", " ", v.replace(label, "")).strip()
 
 
+CONDITIONS = ["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"]
+
+
+def first_condition(v):
+    return next((c for c in CONDITIONS if v.startswith(c)), v.split(" ")[0])
+
+
 def num(s):
     return float(s) if "." in s else int(s)
 
@@ -105,7 +114,12 @@ def parse(item_id, d):
     brand = clean_value(d["brand"], "ブランド")
     low = (brand + " " + name).lower()
     brand_kana = next((v for k, v in BRAND_KANA.items() if re.search(r"(?<![a-z])" + re.escape(k) + r"(?![a-z])", low)), brand)
-    color = next((v for k, v in COLORS if k in name), None) or next((v for k, v in COLORS if k in desc), "")
+    def find_color(t):
+        for k, v in COLORS:
+            if (re.search(r"(?<![A-Za-z])" + k + r"(?![A-Za-z])", t) if k.isascii() else k in t):
+                return v
+        return None
+    color = find_color(name) or find_color(desc) or ""
     material = next((m for m in MATERIALS if m in name), None) or next((m for m in MATERIALS if m in desc), "")
     highlight = next((h for h in HIGHLIGHTS if h in text_all), "")
     mm = re.search(r"(?<![A-Za-z0-9])([A-Z]{1,2}\d{2,3})(?![A-Za-z0-9])", name)
@@ -134,7 +148,7 @@ def parse(item_id, d):
         "material": material, "color": color, "fit": fit,
         "size_label": clean_value(d["size"], "サイズ"),
         "measurements_cm": meas,
-        "condition": clean_value(d["condition"], "商品の状態"),
+        "condition": first_condition(clean_value(d["condition"], "商品の状態")),
         "condition_notes": notes,
         "price_yen": price,
         "sale_type": "auction" if (d["bid"] or "入札" in d["checkout"]) else "fixed",

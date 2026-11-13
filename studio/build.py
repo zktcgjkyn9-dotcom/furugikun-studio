@@ -130,6 +130,8 @@ def ease(x):
 
 def price_label(item):
     p = f"¥{item['price_yen']:,}"
+    if item.get('status') == 'sold':
+        return f"SOLD {p}"
     return f"{p}〜 オークション" if item.get('sale_type') == 'auction' else p
 
 

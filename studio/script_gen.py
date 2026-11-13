@@ -34,15 +34,17 @@ def build_script(item):
     # 冒頭フック:大きい数字があれば数字で、なければ問いかけ
     waist = m.get("ウエスト")
     hl = item.get("highlight")
+    who = f"{color}の{brand_kana}" if color else f"この{brand_kana}"
+    fit = item.get("fit")
     if hl:
-        scenes.append(dict(kind="hook", voice=f"{color}の{brand_kana}、{hl}！？",
-                           caption=f"{color}の{brand_kana}、\n{hl}！？", expr="驚き"))
+        scenes.append(dict(kind="hook", voice=f"{who}、{hl}！？", caption=f"{who}、\n{hl}！？", expr="驚き"))
     elif waist and waist >= 100:
-        scenes.append(dict(kind="hook", voice=f"{color}の{brand_kana}、ウエスト{_cm(waist)}センチ！？",
-                           caption=f"{color}の{brand_kana}、\nウエスト{_cm(waist)}cm！？", expr="驚き"))
+        scenes.append(dict(kind="hook", voice=f"{who}、ウエスト{_cm(waist)}センチ！？",
+                           caption=f"{who}、\nウエスト{_cm(waist)}cm！？", expr="驚き"))
+    elif fit:
+        scenes.append(dict(kind="hook", voice=f"{who}、このシルエット見て！", caption=f"{who}、\nこのシルエット見て！", expr="驚き"))
     else:
-        scenes.append(dict(kind="hook", voice=f"この{color}の{brand_kana}、見てほしい！",
-                           caption=f"この{color}の{brand_kana}、\n見てほしい！", expr="驚き"))
+        scenes.append(dict(kind="hook", voice=f"{who}、見てほしい！", caption=f"{who}、\n見てほしい！", expr="驚き"))
 
     # 商品の正体
     mat = f"{material}地の" if material else ""
@@ -54,7 +56,7 @@ def build_script(item):
                            caption=f"{mat}\n{cat}", expr="通常"))
 
     # サイズ感・シルエット
-    sw = item.get("fit") or silhouette_word(m)
+    sw = fit or silhouette_word(m)
     if sw and "裾幅" in m:
         scenes.append(dict(kind="p2", voice=f"ワタリ{_cm(m['ワタリ'])}センチ、裾幅{_cm(m['裾幅'])}センチの、{sw}シルエット！",
                            caption=f"ワタリ{_cm(m['ワタリ'])}cm・裾幅{_cm(m['裾幅'])}cmの\n{sw}シルエット", expr="通常"))
@@ -86,5 +88,8 @@ def build_script(item):
     chips["p1"] = " ".join(x for x in ["①", brand, model or hl or "", f"{material}地" if (material and not (hl and not model)) else ""] if x)
     if sw:
         chips["p2"] = f"② ワタリ{_cm(m['ワタリ'])}cmの{sw}"
-    chips["push"] = f"③ {color}の色落ち" if "色落ち" in notes else f"③ {material}の生地感"
+    if "色落ち" in notes:
+        chips["push"] = f"③ {color}の色落ち" if color else "③ いい色落ち"
+    else:
+        chips["push"] = f"③ {material}の生地感" if material else "③ 生地感"
     return scenes, chips
