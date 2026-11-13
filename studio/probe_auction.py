@@ -7,9 +7,16 @@ async def main(item):
         pg = await b.new_page(user_agent=UA, locale="ja-JP", viewport={"width": 430, "height": 932})
         await pg.goto(f"https://jp.mercari.com/item/{item}", wait_until="networkidle", timeout=60000)
         await pg.wait_for_timeout(1500)
-        c = await pg.query_selector('[data-testid="item-detail-container"]')
-        t = await c.inner_text() if c else ""
-        print("=====DETAIL=====", item); print(t[:2500])
+        body = await pg.inner_text("body")
+        print("=====ITEM=====", item)
+        for kw in ("開始", "入札", "終了", "残り", "現在", "即決", "オークション"):
+            for m in list(re.finditer(kw, body))[:3]:
+                print(f"[{kw}]", body[max(0, m.start()-60):m.start()+80].replace("\n", " | "))
+        ids = await pg.eval_on_selector_all("[data-testid]", "els => [...new Set(els.map(e => e.getAttribute('data-testid')))]")
+        print("TESTIDS", [x for x in ids if any(k in x for k in ("auction","bid","price","time","checkout","countdown"))])
+        for sel in ('[data-testid="checkout-button-container"]', '[data-testid="price"]'):
+            el = await pg.query_selector(sel)
+            print(sel, (await el.inner_text()).replace("\n"," | ") if el else None)
         bh = await pg.query_selector('[data-testid="bid-history-button"]')
         if bh:
             print("=====BIDBTN=====", await bh.inner_text())
