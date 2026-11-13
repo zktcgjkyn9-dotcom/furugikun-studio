@@ -98,5 +98,5 @@ jobs:
           git add items outputs
           if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
           git commit -m "取り込み・動画作成 ($(date +%m/%d\ %H:%M))"
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main
           git push
