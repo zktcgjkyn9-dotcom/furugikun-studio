@@ -1,6 +1,6 @@
 {
-  "pattern": "price",
-  "pattern_name": "価格訴求型",
+  "pattern": "comedy",
+  "pattern_name": "コメディ型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 24.53,
+  "total_sec": 19.1,
   "bgm": {
     "type": "auto",
     "bpm": 92,
@@ -19,27 +19,44 @@
   },
   "scenes": [
     {
+      "gesture": "doubletake",
+      "kind": "doubletake",
+      "voice": "ちょ、ちょっと待って…",
+      "caption": "ちょ、ちょっと待って…",
+      "expr": "困り顔",
+      "style": "びくびく",
+      "speed": 0.95,
+      "intonation": 1.3,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "big",
+      "shot": "full",
+      "sfx": "boing",
+      "start": 0.35,
+      "end": 2.163333333333333
+    },
+    {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "えっ、カーハートが、2,000円スタート！？",
+      "voice": "このカーハート、2,000円スタートって、ほんと！？",
       "caption": "カーハートが\n2,000円スタート！？",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.05,
-      "intonation": 1.6,
-      "volume": 1.15,
+      "speed": 1.1,
+      "intonation": 1.65,
+      "volume": 1.2,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
-      "start": 0.35,
-      "end": 3.7313333333333336
+      "start": 2.3433333333333333,
+      "end": 5.916666666666666
     },
     {
       "gesture": "point",
       "kind": "point",
-      "voice": "カーハートの、キャンバス地のペインターパンツ。",
-      "caption": "カーハート\nキャンバス地のペインターパンツ",
+      "voice": "キャンバス地のペインターパンツだよ？",
+      "caption": "キャンバス地のペインターパンツだよ？",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -49,29 +66,12 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 3.9113333333333338,
-      "end": 6.695333333333334
+      "start": 6.096666666666666,
+      "end": 8.293999999999999
     },
     {
-      "gesture": "explain",
-      "kind": "explain",
-      "voice": "ワタリ33センチ、裾幅25センチの、ワイドシルエット。",
-      "caption": "ワタリ33cm・裾幅25cm\nワイドシルエット",
-      "expr": "通常",
-      "style": "ふつう",
-      "speed": 1.08,
-      "intonation": 1.1,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "full3",
-      "sfx": null,
-      "start": 6.875333333333334,
-      "end": 11.568666666666667
-    },
-    {
-      "gesture": "detail",
-      "kind": "detail",
+      "gesture": "push",
+      "kind": "push",
       "voice": "一押しは、キャンバスの、いい色落ち！",
       "caption": "一押しは\nキャンバスの色落ち！",
       "expr": "自信のある表情",
@@ -82,31 +82,31 @@
       "pause": 0.18,
       "telop": "sub",
       "shot": "knee",
-      "sfx": "shutter",
-      "start": 11.748666666666667,
-      "end": 14.628666666666668
-    },
-    {
-      "gesture": "price",
-      "kind": "price",
-      "voice": "この価格から狙えるチャンス、見逃せない！",
-      "caption": "¥2,000から\n狙える！",
-      "expr": "驚き",
-      "style": "わーい",
-      "speed": 1.0,
-      "intonation": 1.55,
-      "volume": 1.15,
-      "pause": 0.45,
-      "telop": "price",
-      "shot": "full",
-      "sfx": "drum",
-      "start": 15.078666666666667,
-      "end": 18.097333333333335
+      "sfx": "ding",
+      "start": 8.473999999999998,
+      "end": 11.514
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
+      "voice": "古着くん、思わず二度見しちゃった！",
+      "caption": "思わず二度見！",
+      "expr": "笑顔",
+      "style": "わーい",
+      "speed": 1.1,
+      "intonation": 1.25,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full",
+      "sfx": "boing",
+      "start": 11.693999999999999,
+      "end": 14.275333333333332
+    },
+    {
+      "gesture": "call",
+      "kind": "call",
+      "voice": "気になったら、プロフのリンクからチェックしてね！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -117,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 18.347333333333335,
-      "end": 22.88066666666667
+      "start": 14.525333333333332,
+      "end": 17.48
     },
     {
       "gesture": "bye",
@@ -134,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 23.08066666666667,
-      "end": 23.731333333333335
+      "start": 17.68,
+      "end": 18.298666666666666
     }
   ],
   "chips": {

@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-14T00:40:32+09:00",
+  "updated": "2026-11-14T01:22:42+09:00",
   "by_pattern": {
     "price": {
       "name": "価格訴求型",
-      "videos": 3,
+      "videos": 2,
       "posted": 0,
       "sold": 0,
       "like_gain": 0,
-      "bids": 11
+      "bids": 7
     },
     "auction": {
       "name": "オークション訴求型",
@@ -40,6 +40,14 @@
       "sold": 0,
       "like_gain": 0,
       "bids": 0
+    },
+    "comedy": {
+      "name": "コメディ型",
+      "videos": 1,
+      "posted": 0,
+      "sold": 0,
+      "like_gain": 0,
+      "bids": 5
     }
   },
   "weights": {}
