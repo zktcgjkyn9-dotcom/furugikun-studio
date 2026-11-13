@@ -247,7 +247,7 @@ if __name__ == "__main__":
         for pth in (ROOT / "items").glob("m*/item.json"):
             it = json.loads(pth.read_text())
             stale = it.get("fetched_at", "") < (datetime.now(JST) - timedelta(hours=20)).isoformat()
-            missing = it.get("sale_type") == "auction" and "start_price_yen" not in it   # 開始価格を未取得の商品は優先
+            missing = "api_status" not in it   # 開始価格などを未確認の(古い形式の)商品は優先して取り直す
             if it.get("status") == "on_sale" and (stale or missing):
                 cands.append(("0" if missing else it.get("fetched_at", ""), it["item_id"]))
         for _, i in sorted(cands)[:n]:

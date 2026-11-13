@@ -86,6 +86,9 @@ def plan():
         if it.get("status") != "on_sale":
             continue
         vkey = pj.get("generated_at", "")
+        for e in q:   # 動画を作り直した商品は、古い版の承認待ちを取り下げる
+            if e["item_id"] == iid and e.get("variant_key") != vkey and e["status"] == "awaiting_approval":
+                e["status"] = "superseded"
         if (iid, "tiktok", vkey) not in have:
             taken = [e["scheduled_at"] for e in q if e["platform"] == "tiktok"]
             q.append(dict(id=uuid.uuid4().hex[:8], item_id=iid, platform="tiktok", variant_key=vkey,
@@ -246,6 +249,8 @@ def analyze():
     by = {}
     for out in (ROOT / "outputs").glob("m*/script.json"):
         sj = json.loads(out.read_text()); iid = out.parent.name; it = item(iid)
+        if "pattern" not in sj:
+            continue
         ser = mercari_series(iid)
         likes = [s["num_likes"] for s in ser if s.get("num_likes") is not None]
         bids = [s["total_bids"] for s in ser if s.get("total_bids") is not None]

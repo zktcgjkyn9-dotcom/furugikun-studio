@@ -47,8 +47,9 @@ def facts(item):
         cat=item.get("category") or "古着", model=item.get("model", ""),
         hl=item.get("highlight", ""), fit=item.get("fit") or silhouette_word(m) or "",
         m=m, notes=item.get("condition_notes", []), cond=item.get("condition", ""),
-        start=item.get("start_price_yen") if item.get("sale_type") == "auction" else None,
-        fixed=item.get("price_yen") if item.get("sale_type") == "fixed" else None,
+        # 価格はページの商品データ(api_status付き)で確認できたものだけを使う
+        start=item.get("start_price_yen") if (item.get("sale_type") == "auction" and item.get("api_status")) else None,
+        fixed=item.get("price_yen") if (item.get("sale_type") == "fixed" and item.get("api_status")) else None,
         usa="USA製" in title or "アメリカ製" in title,
         vintage=any(w in title for w in ("ヴィンテージ", "ビンテージ", "vintage", "VINTAGE", "90s", "80s")),
         end=None,
@@ -149,7 +150,7 @@ def p_hype(f):
     star = f["hl"] or f["thing"]
     return [S("hook", "うわっ、これ、アツい！", "これ、アツい！", expr="驚き", style="わーい", speed=1.15, intonation=1.7, volume=1.2, telop="big", sfx="pop"),
             S("point", f"{f['brand']}の、{star}！", f"{f['brand']}の\n{star}！", expr="自信のある表情", style="わーい", speed=1.12, intonation=1.5, sfx="whoosh"),
-            fade_scene(f, "push", "knee"),
+            size_scene(f, "full2"), fade_scene(f, "push", "knee"),
             price_scene(f, f"しかも、{_yen(f['start'])}円スタート！" if f["start"] else None),
             S("call", "気になったら、今すぐチェック！", "今すぐチェック！", expr="笑顔", style="わーい", intonation=1.5), bye()]
 
