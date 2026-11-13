@@ -7,11 +7,19 @@ on:
         description: "メルカリの商品URL（空欄なら出品者ページから新しい出品を探す）"
         required: false
         default: ""
+      approve:
+        description: "承認する投稿のID・商品ID（全部なら all）"
+        required: false
+        default: ""
+      variant:
+        description: "同じ商品で別パターンの動画を作るときは 1, 2 …"
+        required: false
+        default: "0"
   schedule:
-    - cron: "0 */2 * * *"   # 2時間ごとに新しい出品を確認
+    - cron: "0 */2 * * *"   # 2時間ごと:新着確認・投稿・成果の記録
   push:
     branches: [main]
-    paths: ["items/**/item.json", "items/**/photos/**", "studio/**", "bgm/**", "requirements.txt"]
+    paths: ["items/**/item.json", "items/**/photos/**", "bgm/**"]
 
 concurrency:
   group: make-video
@@ -23,7 +31,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
+    env:
+      X_API_KEY: ${{ secrets.X_API_KEY }}
+      X_API_SECRET: ${{ secrets.X_API_SECRET }}
+      X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+      X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+      TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,8 +52,12 @@ jobs:
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
 
+      - name: 投稿を承認する
+        if: inputs.approve != ''
+        run: python studio/social.py approve "${{ inputs.approve }}"
+
       - name: メルカリから商品を取り込む
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && inputs.approve == ''
         env:
           URL: ${{ inputs.url }}
         run: |
@@ -45,8 +65,7 @@ jobs:
             python studio/fetch_item.py "$URL"
           elif [ -f items/.seller ]; then
             python studio/fetch_item.py --seller
-          else
-            echo "出品者ページが未登録のため、新着の確認はスキップ"
+            python studio/fetch_item.py --refresh 6
           fi
 
       - name: 動画にする商品を調べる
@@ -80,23 +99,24 @@ jobs:
 
       - name: 動画を作る
         if: steps.plan.outputs.ids != ''
-        run: python studio/build.py ${{ steps.plan.outputs.ids }}
+        run: python studio/build.py ${{ steps.plan.outputs.ids }} --variant "${{ inputs.variant || '0' }}"
 
-      - name: できた動画を保存（Actionsの成果物）
-        if: always() && steps.plan.outputs.ids != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: furugikun-videos
-          path: outputs/
-          if-no-files-found: ignore
+      - name: 投稿予定・投稿・成果の記録・管理画面
+        if: always()
+        run: |
+          python studio/social.py plan
+          python studio/social.py post
+          python studio/social.py metrics || true
+          python studio/social.py analyze || true
+          python studio/social.py status
 
-      - name: 商品情報と動画をリポジトリに保存
+      - name: 保存
         if: always()
         run: |
           git config user.name "furugikun-bot"
           git config user.email "furugikun-bot@users.noreply.github.com"
-          git add items outputs
+          git add items outputs posting metrics STATUS.md
           if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
-          git commit -m "取り込み・動画作成 ($(date +%m/%d\ %H:%M))"
+          git commit -m "自動更新 ($(TZ=Asia/Tokyo date +%m/%d\ %H:%M))"
           git pull --rebase -X theirs origin main
           git push

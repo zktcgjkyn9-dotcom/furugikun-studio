@@ -51,6 +51,15 @@ async def render(url):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         b, pg = await _page(p)
+        api = {}
+
+        async def on_resp(r):
+            if "/items/get" in r.url:
+                try:
+                    api.update((await r.json()).get("data") or {})
+                except Exception:
+                    pass
+        pg.on("response", on_resp)
         await pg.goto(url, wait_until="networkidle", timeout=60000)
         await pg.wait_for_timeout(1500)
 
@@ -73,6 +82,7 @@ async def render(url):
             "bid": bool(await pg.query_selector('[data-testid="bid-history-button"]')),
             "photos": len(await pg.query_selector_all('[data-testid^="image-"]')),
             "seller": seller,
+            "api": api,
         }
         await b.close()
         return data
@@ -151,12 +161,38 @@ def parse(item_id, d):
         "condition": first_condition(clean_value(d["condition"], "商品の状態")),
         "condition_notes": notes,
         "price_yen": price,
-        "sale_type": "auction" if (d["bid"] or "入札" in d["checkout"]) else "fixed",
-        "status": "sold" if "売り切れ" in d["checkout"] else "on_sale",
+        **auction_fields(d),
         "bgm": "auto",
         "description_raw": desc,
         "fetched_at": datetime.now(JST).isoformat(timespec="seconds"),
     }
+
+
+def auction_fields(d):
+    """開始価格などは、ページが受け取る商品データの値をそのまま使う(推測しない)"""
+    api = d.get("api") or {}
+    a = api.get("auction_info") or {}
+    out = {}
+    status = api.get("status")
+    out["status"] = "sold" if status in ("sold_out", "trading", "sold") or "売り切れ" in d["checkout"] else "on_sale"
+    out["api_status"] = status or ""
+    out["num_likes"] = api.get("num_likes")
+    out["num_comments"] = api.get("num_comments")
+    if a:
+        out["sale_type"] = "auction"
+        out["start_price_yen"] = a.get("initial_price")
+        out["highest_bid_yen"] = a.get("highest_bid")
+        out["total_bids"] = a.get("total_bids")
+        out["auction_state"] = a.get("state")
+        end = a.get("expected_end_time")
+        out["auction_end"] = datetime.fromtimestamp(int(end), JST).isoformat(timespec="minutes") if end else None
+        if a.get("state") and a["state"] != "STATE_ONGOING" and out["status"] == "on_sale":
+            out["status"] = "ended"
+    else:
+        out["sale_type"] = "auction" if (d["bid"] or "入札" in d["checkout"]) else "fixed"
+        if out["sale_type"] == "auction":
+            out["start_price_yen"] = None   # 取得できなかった(推測しない)
+    return out
 
 
 def download_photos(item_id, n, dest):
@@ -192,6 +228,11 @@ def import_item(src):
     if not any((folder / "photos").glob("*.jpg")):
         print("写真", download_photos(item_id, d["photos"], folder / "photos"), "枚")
     path.write_text(json.dumps(item, ensure_ascii=False, indent=2))
+    log = ROOT / "metrics" / "mercari" / f"{item_id}.jsonl"
+    log.parent.mkdir(parents=True, exist_ok=True)
+    with log.open("a") as f:
+        f.write(json.dumps({k: item.get(k) for k in ("fetched_at", "status", "price_yen", "start_price_yen", "highest_bid_yen",
+                                                      "total_bids", "num_likes", "num_comments", "auction_end")}, ensure_ascii=False) + "\n")
     print(json.dumps({k: v for k, v in item.items() if k != "description_raw"}, ensure_ascii=False, indent=1))
     if d.get("seller"):
         (ROOT / "items" / ".seller").write_text(d["seller"])
@@ -200,6 +241,22 @@ def import_item(src):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--refresh" in sys.argv:   # 販売中の商品の価格・入札・いいねを1日1回更新(古い順に最大N件)
+        n = int(args[0]) if args else 8
+        cands = []
+        for pth in (ROOT / "items").glob("m*/item.json"):
+            it = json.loads(pth.read_text())
+            stale = it.get("fetched_at", "") < (datetime.now(JST) - timedelta(hours=20)).isoformat()
+            missing = it.get("sale_type") == "auction" and "start_price_yen" not in it   # 開始価格を未取得の商品は優先
+            if it.get("status") == "on_sale" and (stale or missing):
+                cands.append(("0" if missing else it.get("fetched_at", ""), it["item_id"]))
+        for _, i in sorted(cands)[:n]:
+            try:
+                import_item(i)
+            except Exception as e:
+                print("更新失敗", i, e)
+            time.sleep(3)
+        sys.exit(0)
     if "--seller" in sys.argv:
         f = ROOT / "items" / ".seller"
         url = args[0] if args else (f.read_text().strip() if f.exists() else "")

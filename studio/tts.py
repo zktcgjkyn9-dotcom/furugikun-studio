@@ -24,21 +24,22 @@ def _post(path, body=None, raw=False):
 
 
 def pick_speaker():
+    """戻り値: (ふつうのID, 話者名, スタイル名, {スタイル名: ID})"""
     speakers = _get("/speakers")
     for sp in speakers:
         if sp["name"] == SPEAKER_NAME:
-            for st in sp["styles"]:
-                if st["name"] == STYLE_NAME:
-                    return st["id"], sp["name"], st["name"]
-            st = sp["styles"][0]
-            return st["id"], sp["name"], st["name"]
+            styles = {st["name"]: st["id"] for st in sp["styles"]}
+            base = styles.get(STYLE_NAME) or next(iter(styles.values()))
+            return base, sp["name"], STYLE_NAME, styles
     raise RuntimeError(f"話者 {SPEAKER_NAME} が見つかりません: {[s['name'] for s in speakers]}")
 
 
-def synth(text, speaker_id, path, speed=1.12, intonation=1.2):
+def synth(text, speaker_id, path, speed=1.12, intonation=1.2, volume=1.0, pitch=0.0):
     q = _post("/audio_query?" + urllib.parse.urlencode({"text": text, "speaker": speaker_id}))
     q["speedScale"] = speed
     q["intonationScale"] = intonation
+    q["volumeScale"] = volume
+    q["pitchScale"] = pitch
     q["prePhonemeLength"] = 0.05
     q["postPhonemeLength"] = 0.05
     wav = _post("/synthesis?" + urllib.parse.urlencode({"speaker": speaker_id}), q, raw=True)

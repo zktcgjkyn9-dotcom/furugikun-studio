@@ -1,0 +1,9 @@
+{
+  "auto_approve": false,
+  "x_slots": ["08:30", "12:30", "21:00"],
+  "tiktok_slots": ["19:30"],
+  "x_max_per_day": 3,
+  "tiktok_max_per_day": 1,
+  "x_max_per_month": 90,
+  "max_attempts": 3
+}
