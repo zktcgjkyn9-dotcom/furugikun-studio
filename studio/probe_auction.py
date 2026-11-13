@@ -4,12 +4,21 @@ UA = ("Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.
 async def main(item):
     async with async_playwright() as p:
         b = await p.chromium.launch()
-        pg = await b.new_page(user_agent=UA, locale="ja-JP", viewport={"width": 430, "height": 932})
+        ctx = await b.new_context(user_agent=UA, locale="ja-JP", timezone_id="Asia/Tokyo", viewport={"width": 430, "height": 932})
+        pg = await ctx.new_page()
         await pg.goto(f"https://jp.mercari.com/item/{item}", wait_until="networkidle", timeout=60000)
         await pg.wait_for_timeout(1500)
+        try:
+            await pg.get_by_text("日本", exact=True).first.click(timeout=4000)
+            await pg.get_by_text("続ける", exact=True).first.click(timeout=4000)
+            await pg.wait_for_timeout(1500)
+            await pg.reload(wait_until="networkidle"); await pg.wait_for_timeout(1500)
+            print("地域=日本を選択")
+        except Exception as e:
+            print("地域選択なし", e)
         body = await pg.inner_text("body")
         print("=====ITEM=====", item)
-        for kw in ("開始", "入札", "終了", "残り", "現在", "即決", "オークション"):
+        for kw in ("開始", "入札", "終了", "残り", "現在", "即決", "オークション", "お住まい"):
             for m in list(re.finditer(kw, body))[:3]:
                 print(f"[{kw}]", body[max(0, m.start()-60):m.start()+80].replace("\n", " | "))
         ids = await pg.eval_on_selector_all("[data-testid]", "els => [...new Set(els.map(e => e.getAttribute('data-testid')))]")
