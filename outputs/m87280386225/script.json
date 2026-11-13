@@ -12,7 +12,7 @@
     "intro"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 24.71,
+  "total_sec": 25.37,
   "bgm": {
     "type": "auto",
     "bpm": 84,
@@ -34,7 +34,7 @@
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 3.7313333333333336
+      "end": 3.6673333333333336
     },
     {
       "gesture": "point",
@@ -50,8 +50,8 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 3.9113333333333338,
-      "end": 7.122
+      "start": 3.8473333333333337,
+      "end": 7.239333333333334
     },
     {
       "gesture": "explain",
@@ -67,8 +67,8 @@
       "telop": "sub",
       "shot": "full3",
       "sfx": null,
-      "start": 7.302,
-      "end": 11.792666666666666
+      "start": 7.419333333333333,
+      "end": 12.134
     },
     {
       "gesture": "detail",
@@ -84,8 +84,8 @@
       "telop": "sub",
       "shot": "knee",
       "sfx": "shutter",
-      "start": 11.972666666666665,
-      "end": 14.809999999999999
+      "start": 12.314,
+      "end": 15.300666666666666
     },
     {
       "gesture": "price",
@@ -101,8 +101,8 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 15.259999999999998,
-      "end": 18.278666666666666
+      "start": 15.750666666666666,
+      "end": 18.769333333333332
     },
     {
       "gesture": "call",
@@ -118,8 +118,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 18.528666666666666,
-      "end": 23.061999999999998
+      "start": 19.019333333333332,
+      "end": 23.755333333333333
     },
     {
       "gesture": "bye",
@@ -135,8 +135,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 23.261999999999997,
-      "end": 23.912666666666663
+      "start": 23.955333333333332,
+      "end": 24.573999999999998
     }
   ],
   "chips": {

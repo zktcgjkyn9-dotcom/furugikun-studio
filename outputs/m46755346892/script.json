@@ -1,6 +1,6 @@
 {
-  "pattern": "auction",
-  "pattern_name": "オークション訴求型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 17.8,
+  "total_sec": 25.14,
   "bgm": {
     "type": "auto",
     "bpm": 96,
@@ -21,19 +21,19 @@
     {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "オークション、11月14日の20時03分まで！",
-      "caption": "オークション\n11月14日の20時03分まで！",
+      "voice": "えっ、カーハートが、2,000円スタート！？",
+      "caption": "カーハートが\n2,000円スタート！？",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 4.179333333333333
+      "end": 3.6673333333333336
     },
     {
       "gesture": "point",
@@ -49,12 +49,29 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 4.359333333333333,
-      "end": 7.058
+      "start": 3.8473333333333337,
+      "end": 6.716666666666667
     },
     {
-      "gesture": "push",
-      "kind": "push",
+      "gesture": "explain",
+      "kind": "explain",
+      "voice": "ワタリ33センチ、裾幅24センチの、ワイドシルエット。",
+      "caption": "ワタリ33cm・裾幅24cm\nワイドシルエット",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.08,
+      "intonation": 1.1,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full3",
+      "sfx": null,
+      "start": 6.8966666666666665,
+      "end": 11.899333333333333
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
       "voice": "一押しは、ダックの、いい色落ち！",
       "caption": "一押しは\nダックの色落ち！",
       "expr": "自信のある表情",
@@ -65,15 +82,15 @@
       "pause": 0.18,
       "telop": "sub",
       "shot": "knee",
-      "sfx": "ding",
-      "start": 7.2379999999999995,
-      "end": 10.075333333333333
+      "sfx": "shutter",
+      "start": 12.079333333333333,
+      "end": 15.065999999999999
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "2,000円スタートで、参加できる！",
-      "caption": "¥2,000スタート\n参加できる！",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥2,000から\n狙える！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -83,13 +100,13 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 10.525333333333332,
-      "end": 13.010666666666665
+      "start": 15.515999999999998,
+      "end": 18.534666666666666
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "終わる前に、プロフのリンクからチェックしてね！",
+      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -100,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 13.260666666666665,
-      "end": 16.151333333333334
+      "start": 18.784666666666666,
+      "end": 23.520666666666667
     },
     {
       "gesture": "bye",
@@ -117,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 16.351333333333333,
-      "end": 17.002
+      "start": 23.720666666666666,
+      "end": 24.339333333333332
     }
   ],
   "chips": {
