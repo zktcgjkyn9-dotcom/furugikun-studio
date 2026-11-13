@@ -1,0 +1,13 @@
+name: メルカリ取り込みテスト
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["studio/fetch_item.py", ".github/workflows/probe.yml"]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 studio/fetch_item.py m47148845481
