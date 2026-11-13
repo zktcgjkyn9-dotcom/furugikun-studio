@@ -20,7 +20,7 @@ W, H, FPS = 1080, 1920, 30
 INK = '#2A1E18'; FONT = 'Noto Sans CJK JP'
 TAIL = 0.8
 CREDIT = 'VOICEVOX:白上虎太郎'
-CHAR_X, CHAR_Y = 640, 1075   # 古着くんの立ち位置
+CHAR_X, CHAR_Y = 660, 1090   # 古着くんの立ち位置
 
 
 def P(*ds, **kw):
@@ -114,6 +114,9 @@ def concat_audio(parts, starts, total, out):
     for p, st in zip(parts, starts):
         with wave.open(p) as w:
             a = array.array('h'); a.frombytes(w.readframes(w.getnframes()))
+        pk = max(1, max(abs(x) for x in a))
+        g = min(3.0, 0.6 * 32767 / pk)          # どの台詞もピーク-4.4dBにそろえる(大声で割れない)
+        a = array.array('h', (int(x * g) for x in a))
         o = int(st * rate)
         n = min(len(a), len(buf) - o)
         if n > 0:
@@ -237,61 +240,50 @@ class Video:
         st['mouth'] = 'open' if (not speaking or lv > 0.18) else 'closed'
         return st, sc
 
-    def photo_layer(self, sc, t, cx, cy, iw, ih):
+    def photo_layer(self, sc, t):
+        """商品写真を画面いっぱいに使う。背景はぼかした同じ写真、手前は写真全体(枠なし)"""
         if not self.photos:
-            return (f'<rect x="{cx-iw/2:.1f}" y="{cy-ih/2:.1f}" width="{iw:.1f}" height="{ih:.1f}" rx="22" fill="#E9E3D8"></rect>'
-                    + tb('商品写真が入る位置', cx, cy, 54, 'middle', 700, '#8A7C68', '#E9E3D8', 0))
+            return f'<rect width="{W}" height="{H}" fill="#3A3029"></rect>'
         idx, fxr, fyr, z = SHOTS.get(sc.get('shot', 'full'), SHOTS['full'])
-        img = self.photos[idx % len(self.photos)]
+        k = idx % len(self.photos)
+        img, bg = self.photos[k], self.blurred[k]
         lt = t - sc['start']; d = max(0.6, sc['end'] - sc['start'])
-        z = z * (1 + 0.06 * ease(lt / d))                 # ゆっくり寄る
-        slide = (1 - ease(lt / 0.22)) * 90                 # カットの切り替わりで横から入る
-        # 拡大の中心を注目点へ
-        lim_x, lim_y = (z - 1) * iw / 2, (z - 1) * ih / 2   # 写真の端が見えない範囲で注目点へ寄せる
-        px = cx - max(-lim_x, min(lim_x, (fxr - 0.5) * iw * z))
-        py = cy - max(-lim_y, min(lim_y, (fyr - 0.5) * ih * z))
-        return (f'<g clip-path="url(#ph)"><g transform="translate({px + slide:.1f} {py:.1f}) scale({z:.4f}) translate({-cx:.1f} {-cy:.1f})">'
-                f'<image x="{cx-iw/2:.1f}" y="{cy-ih/2:.1f}" width="{iw:.1f}" height="{ih:.1f}" preserveAspectRatio="xMidYMid slice" href="{img}"></image></g></g>')
+        out = f'<image x="-40" y="-40" width="{W+80}" height="{H+80}" preserveAspectRatio="xMidYMid slice" href="{bg}"></image>'
+        out += f'<rect width="{W}" height="{H}" fill="#000000" opacity="0.18"></rect>'
+        # 手前の写真:横幅いっぱい、上寄せ。ディテールでは大きく寄る
+        cx, cy = W / 2, 820
+        size = W * 1.06
+        zz = z * (1 + 0.07 * ease(lt / d))
+        slide = (1 - ease(lt / 0.25)) * 120
+        fx = (fxr - 0.5) * size * zz; fy = (fyr - 0.5) * size * zz
+        if z > 1:   # 寄るときは注目点を画面中央へ
+            tx, ty = cx - fx, cy - fy
+        else:
+            tx, ty = cx, cy
+        out += (f'<g transform="translate({tx + slide:.1f} {ty:.1f}) scale({zz:.4f})">'
+                f'<image x="{-size/2:.1f}" y="{-size/2:.1f}" width="{size:.1f}" height="{size:.1f}" preserveAspectRatio="xMidYMid meet" href="{img}"></image></g>')
+        # 下の方を少し暗くして字幕と古着くんを読みやすく
+        out += ('<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0.55" stop-color="#000" stop-opacity="0"></stop>'
+                '<stop offset="1" stop-color="#000" stop-opacity="0.55"></stop></linearGradient>'
+                f'<rect width="{W}" height="{H}" fill="url(#fade)"></rect>')
+        return out
 
     def frame_svg(self, t):
         st, sc = self.pose(t)
         g = sc['gesture']; lt = t - sc['start']
         is_price = sc.get('telop') == 'price'
-        s = ''
-        # 背景と照明
-        s += f'<rect width="{W}" height="{H}" fill="#F2EFE9"></rect>'
-        s += (f'<radialGradient id="spot" cx="0.78" cy="0.7" r="0.55"><stop offset="0" stop-color="#FFF6DD" stop-opacity="0.95"></stop>'
-              f'<stop offset="1" stop-color="#F2EFE9" stop-opacity="0"></stop></radialGradient><rect width="{W}" height="{H}" fill="url(#spot)"></rect>')
-        if is_price:   # 価格のときは集中線のような光
+        s = self.photo_layer(sc, t)
+        if is_price:   # 価格のときは集中線
             rot = (t * 25) % 360; a = ease(lt / 0.3)
-            rays = ''.join(f'<path d="M540 760 L{540 + 1600*math.cos(math.radians(i*15+rot)):.0f} {760 + 1600*math.sin(math.radians(i*15+rot)):.0f} '
-                           f'L{540 + 1600*math.cos(math.radians(i*15+rot+6)):.0f} {760 + 1600*math.sin(math.radians(i*15+rot+6)):.0f} Z" fill="#FFD84D"></path>' for i in range(24))
-            s += f'<g opacity="{0.35*a:.2f}">{rays}</g>'
-        # 商品写真
-        pz = 1 + 0.02 * (t / self.total)
-        cx, cy, pw, ph = 540, 700, 860 * pz, 860 * pz
-        iw, ih = pw - 48, ph - 48
-        s += f'<rect x="{cx-pw/2:.1f}" y="{cy-ph/2:.1f}" width="{pw:.1f}" height="{ph:.1f}" rx="36" fill="#FFFFFF" stroke="{INK}" stroke-width="6"></rect>'
-        s += f'<clipPath id="ph"><rect x="{cx-iw/2:.1f}" y="{cy-ih/2:.1f}" width="{iw:.1f}" height="{ih:.1f}" rx="22"></rect></clipPath>'
-        s += self.photo_layer(sc, t, cx, cy, iw, ih)
+            rays = ''.join(f'<path d="M540 760 L{540 + 1700*math.cos(math.radians(i*15+rot)):.0f} {760 + 1700*math.sin(math.radians(i*15+rot)):.0f} '
+                           f'L{540 + 1700*math.cos(math.radians(i*15+rot+5)):.0f} {760 + 1700*math.sin(math.radians(i*15+rot+5)):.0f} Z" fill="#FFFFFF"></path>' for i in range(24))
+            s += f'<g opacity="{0.28*a:.2f}">{rays}</g>'
         if sc.get('shot') in ('top', 'knee', 'hem'):
             lab = {'top': 'ウエストまわり', 'knee': 'ひざ・色落ち', 'hem': '裾'}[sc['shot']]
-            s += (f'<rect x="{cx-pw/2+40:.1f}" y="{cy+ph/2-110:.1f}" width="300" height="64" rx="32" fill="#B5452E"></rect>'
-                  + tb(f'DETAIL・{lab}', cx - pw / 2 + 190, cy + ph / 2 - 66, 30, 'middle', 800, '#FFFFFF', INK, 0))
-        s += (f'<rect x="{cx+pw/2-430:.1f}" y="{cy-ph/2-36:.1f}" width="430" height="84" rx="42" fill="{INK}"></rect>'
-              + tb(price_badge(self.item), cx + pw / 2 - 215, cy - ph / 2 + 19, 36, 'middle', 800, '#FFD84D', INK, 0))
-        # 訴求ラベル(シーンが進むごとに増える)
-        for i, key in enumerate(('c1', 'c2', 'c3')):
-            if key not in self.chips or i + 1 >= len(self.scenes):
-                continue
-            t0 = self.scenes[i + 1]['start']
-            if t < t0:
-                continue
-            a = ease((t - t0) / 0.35); y = 1210 + i * 96; x = 110 - (1 - a) * 400
-            hot = self.scenes.index(sc) == i + 1
-            s += (f'<g opacity="{a:.2f}"><rect x="{x:.1f}" y="{y}" width="540" height="78" rx="39" fill="{"#B5452E" if hot else "#FFFFFF"}" stroke="{INK}" stroke-width="5"></rect>'
-                  + tb(self.chips[key], x + 30, y + 52, 36, 'start', 800, '#FFFFFF' if hot else INK, INK, 0) + '</g>')
-        # 古着くん(+商品を持つカード)
+            lt_ = f'DETAIL・{lab}'; w_ = text_w(lt_, 32) + 56
+            s += (f'<rect x="36" y="170" width="{w_:.0f}" height="66" rx="33" fill="#B5452E"></rect>'
+                  + tb(lt_, 36 + w_ / 2, 215, 32, 'middle', 800, '#FFFFFF', INK, 0))
+        # 古着くん(写真の中に立つ)
         s += f'<g transform="translate({CHAR_X} {CHAR_Y})">{rig.character(st)}'
         if g == 'hold' and self.photos:
             a = ease((lt - 0.2) / 0.3)
@@ -304,10 +296,13 @@ class Video:
         z, fx, fy = st['zoom'], st['fx'], st['fy']
         body = f'<g transform="translate({fx:.1f} {fy:.1f}) scale({z:.4f}) translate({-fx:.1f} {-fy:.1f})">{s}</g>'
         s = ''
-        # テロップ(ズームの影響を受けない層)
+        # 価格バッジ(左上)
+        s += (f'<rect x="36" y="64" width="{text_w(price_badge(self.item), 40) + 64:.0f}" height="84" rx="42" fill="{INK}" opacity="0.92"></rect>'
+              + tb(price_badge(self.item), 68, 121, 40, 'start', 900, '#FFD84D', INK, 0))
+        # テロップ(ズームの外)
         if sc.get('telop') == 'big':
-            a = back(lt / 0.28); sz = fit(sc['caption'], 84, 960) * max(0.3, a)
-            s += f'<g opacity="{min(1, lt/0.12):.2f}">' + tb(sc['caption'], W / 2, 380, sz, 'middle', 900, '#FFFFFF', '#B5452E', 22) + '</g>'
+            a = back(lt / 0.28); sz = fit(sc['caption'], 92, 980) * max(0.3, a)
+            s += f'<g opacity="{min(1, lt/0.12):.2f}">' + tb(sc['caption'], W / 2, 330, sz, 'middle', 900, '#FFFFFF', '#B5452E', 24) + '</g>'
         elif is_price:
             a = back(lt / 0.32); shake = 6 * math.sin(lt * 70) * max(0, 1 - lt / 0.5)
             lines = sc['caption'].split('\n')
@@ -315,18 +310,14 @@ class Video:
             sub = ' '.join(l for l in lines if l != main)
             s += f'<g transform="translate({540 + shake:.1f} 760) scale({max(0.2, a):.3f})">'
             if sub:
-                s += tb(sub, 0, -120, fit(sub, 70, 900), 'middle', 900, '#FFFFFF', INK, 18)
-            s += tb(main, 0, 40, fit(main, 132, 880), 'middle', 900, '#FFD84D', '#B5452E', 26) + '</g>'
+                s += tb(sub, 0, -130, fit(sub, 76, 900), 'middle', 900, '#FFFFFF', INK, 18)
+            s += tb(main, 0, 40, fit(main, 140, 900), 'middle', 900, '#FFD84D', '#B5452E', 28) + '</g>'
         else:
-            s += tb(sc['caption'], 370, 1610, fit(sc['caption'], 52, 640), 'middle', 900, '#FFFFFF', INK, 14)
-        # カットの切り替わりの白フラッシュ
+            s += tb(sc['caption'], 360, 1620, fit(sc['caption'], 56, 620), 'middle', 900, '#FFFFFF', INK, 16)
         if sc.get('telop') in ('big', 'price') and lt < 0.1:
-            s += f'<rect width="{W}" height="{H}" fill="#FFFFFF" opacity="{0.55*(1-lt/0.1):.2f}"></rect>'
-        body += s
-        top = (f'<rect y="0" width="{W}" height="150" fill="{INK}"></rect>'
-               + tb('古着くんの今日の一着', 60, 98, 52, 'start', 700, '#F4EFE6', INK, 0))
+            s += f'<rect width="{W}" height="{H}" fill="#FFFFFF" opacity="{0.5*(1-lt/0.1):.2f}"></rect>'
         return (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" '
-                f'viewBox="0 0 {W} {H}" font-family="{FONT}">{V.DEFS}{body}{top}</svg>')
+                f'viewBox="0 0 {W} {H}" font-family="{FONT}">{V.DEFS}{body}{s}</svg>')
 
 
 _VIDEO = None
@@ -337,6 +328,17 @@ def _render(args):
         f.write(_VIDEO.frame_svg(i / FPS))
     subprocess.run(['rsvg-convert', svg, '-o', png], check=True)
     os.remove(svg)
+
+
+def blurred_photos(item_dir, work):
+    out = []
+    for i, p in enumerate(sorted(glob.glob(os.path.join(item_dir, 'photos', '*.jpg')) + sorted(glob.glob(os.path.join(item_dir, 'photos', '*.png'))))):
+        dst = os.path.join(work, f'bg{i}.jpg')
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', p, '-vf',
+                        f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},gblur=sigma=28,eq=brightness=-0.04:saturation=1.1',
+                        '-q:v', '4', dst], check=True)
+        out.append('data:image/jpeg;base64,' + base64.b64encode(open(dst, 'rb').read()).decode())
+    return out
 
 
 def load_photos(item_dir):
@@ -394,8 +396,10 @@ def build(item_id, mock=False, skip_sold=False, variant=0, pattern=None):
         if mock:
             dur = tts.mock_synth(sc['voice'], p)
         else:
-            sid = styles.get(sc['style'], spk[0])
-            dur = tts.synth(sc['voice'], sid, p, speed=sc['speed'], intonation=sc['intonation'], volume=sc['volume'])
+            style = sc['style'] if sc['style'] == 'びくびく' else 'ふつう'   # 叫び系の声色は機械っぽく聞こえるので使わない
+            sid = styles.get(style, spk[0])
+            dur = tts.synth(sc['voice'], sid, p, speed=1 + (sc['speed'] - 1) * 0.45,
+                            intonation=1 + (sc['intonation'] - 1) * 0.45, volume=1.0)
         sc['start'], sc['end'] = t, t + dur
         parts.append(p); starts.append(t)
         t += dur
@@ -412,6 +416,7 @@ def build(item_id, mock=False, skip_sold=False, variant=0, pattern=None):
     sfx.track(ev, total, str(work / 'sfx.wav'), seed=int(hashlib.sha256(item_id.encode()).hexdigest(), 16) % 1000)
 
     _VIDEO = Video(item, plan, scenes, chips, load_photos(str(item_dir)), total, levels)
+    _VIDEO.blurred = blurred_photos(str(item_dir), str(work))
     n = int(total * FPS)
     with ProcessPoolExecutor(mp_context=multiprocessing.get_context('fork')) as ex:
         list(ex.map(_render, [(i, str(work)) for i in range(n)], chunksize=8))
@@ -421,16 +426,16 @@ def build(item_id, mock=False, skip_sold=False, variant=0, pattern=None):
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', str(work / 'f%05d.png'),
            '-i', str(out / 'voice.wav'), '-i', str(work / 'sfx.wav')]
     fc = ('[1:a]aresample=44100,aformat=channel_layouts=stereo,asplit=2[v1][v2];'
-          '[2:a]volume=0.55[fx];')
+          '[2:a]volume=0.3[fx];')
     if music:
         cmd += ['-stream_loop', '-1', '-i', str(music)]
         fc += (f'[3:a]aresample=44100,aformat=channel_layouts=stereo,volume={vol},afade=t=out:st={max(0, total - 1.2):.2f}:d=1.2[m];'
                '[m][v1]sidechaincompress=threshold=0.02:ratio=5:attack=15:release=350[md];'
-               '[v2]volume=1.4[vv];[vv][md][fx]amix=inputs=3:duration=first:normalize=0,alimiter=limit=0.95[a]')
+               '[v2][md][fx]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-15:TP=-2:LRA=9[a]')
     else:
-        fc += '[v2]volume=1.4[vv];[vv][fx]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]'
+        fc += '[v2][fx]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-15:TP=-2:LRA=9[a]'
     cmd += ['-filter_complex', fc, '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-            '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-t', f'{total:.3f}', '-movflags', '+faststart', str(mp4)]
+            '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-t', f'{total:.3f}', '-movflags', '+faststart', str(mp4)]
     subprocess.run(cmd, check=True)
     (out / 'script.json').write_text(json.dumps(dict(pattern=plan['pattern'], pattern_name=plan['pattern_name'],
                                                      candidates=plan['ranked'], speaker=spk[1], total_sec=round(total, 2),
