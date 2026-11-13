@@ -120,7 +120,7 @@ def parse(item_id, d):
                 return v
         return None
     color = find_color(name) or find_color(desc) or ""
-    material = next((m for m in MATERIALS if m in name), None) or next((m for m in MATERIALS if m in desc), "")
+    material = next((m for m in MATERIALS if m in name), "")   # 説明文の定型文に引っ張られないよう、タイトルからだけ取る
     highlight = next((h for h in HIGHLIGHTS if h in text_all), "")
     mm = re.search(r"(?<![A-Za-z0-9])([A-Z]{1,2}\d{2,3})(?![A-Za-z0-9])", name)
     model = mm.group(1) if mm else ""

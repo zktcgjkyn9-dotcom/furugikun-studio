@@ -42,7 +42,7 @@ def build_script(item):
         scenes.append(dict(kind="hook", voice=f"{who}、ウエスト{_cm(waist)}センチ！？",
                            caption=f"{who}、\nウエスト{_cm(waist)}cm！？", expr="驚き"))
     elif fit:
-        scenes.append(dict(kind="hook", voice=f"{who}、このシルエット見て！", caption=f"{who}、\nこのシルエット見て！", expr="驚き"))
+        scenes.append(dict(kind="hook", voice=f"{who}、シルエット見て！", caption=f"{who}、\nシルエット見て！", expr="驚き"))
     else:
         scenes.append(dict(kind="hook", voice=f"{who}、見てほしい！", caption=f"{who}、\n見てほしい！", expr="驚き"))
 
@@ -51,9 +51,12 @@ def build_script(item):
     if model:
         scenes.append(dict(kind="p1", voice=f"定番の、{mat}{cat}。",
                            caption=f"定番の{mat}\n{cat}{model}", expr="通常"))
-    else:
+    elif mat:
         scenes.append(dict(kind="p1", voice=f"{mat}、{cat}。",
                            caption=f"{mat}\n{cat}", expr="通常"))
+    else:
+        scenes.append(dict(kind="p1", voice=f"今回紹介するのは、{cat}！",
+                           caption=f"今回紹介するのは\n{cat}", expr="通常"))
 
     # サイズ感・シルエット
     sw = fit or silhouette_word(m)
@@ -66,11 +69,16 @@ def build_script(item):
 
     # 一押し:説明文に色落ちがあれば色落ち、なければ素材
     if "色落ち" in notes:
-        scenes.append(dict(kind="push", voice=f"一押しは、{color}{material}に出た、いい色落ち！",
-                           caption=f"一押しは、{color}{material}に\n出た色落ち！", expr="自信のある表情"))
+        if material:
+            scenes.append(dict(kind="push", voice=f"一押しは、{color}{material}に出た、いい色落ち！",
+                               caption=f"一押しは、{color}{material}に\n出た色落ち！", expr="自信のある表情"))
+        else:
+            scenes.append(dict(kind="push", voice="一押しは、古着ならではの、いい色落ち！",
+                               caption="一押しは、古着ならではの\nいい色落ち！", expr="自信のある表情"))
     else:
-        scenes.append(dict(kind="push", voice=f"一押しは、{material}の、しっかりした生地感！",
-                           caption=f"一押しは\n{material}の生地感！", expr="自信のある表情"))
+        mt = material or "生地"
+        scenes.append(dict(kind="push", voice=f"一押しは、{mt}の、しっかりした質感！",
+                           caption=f"一押しは\n{mt}の質感！", expr="自信のある表情"))
 
     # 締め:状態に傷や汚れがあれば正直に写真確認を促す
     if "目立つ" in cond:
