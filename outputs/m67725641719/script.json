@@ -1,6 +1,6 @@
 {
-  "pattern": "price",
-  "pattern_name": "価格訴求型",
+  "pattern": "detail",
+  "pattern_name": "ディテール型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 25.28,
+  "total_sec": 23.38,
   "bgm": {
     "type": "auto",
     "bpm": 88,
@@ -21,25 +21,25 @@
     {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "えっ、カーハートが、2,000円スタート！？",
-      "caption": "カーハートが\n2,000円スタート！？",
+      "voice": "このディテール、見て！",
+      "caption": "このディテール\n見て！",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.05,
-      "intonation": 1.6,
-      "volume": 1.15,
+      "speed": 1.1,
+      "intonation": 1.25,
+      "volume": 1.0,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 3.7313333333333336
+      "end": 1.9180000000000001
     },
     {
-      "gesture": "point",
-      "kind": "point",
-      "voice": "カーキのカーハート、ツイル地のペインターパンツ。",
-      "caption": "カーハート\nツイル地のペインターパンツ",
+      "gesture": "detail",
+      "kind": "detail",
+      "voice": "まずは、カーハートらしい、ウエストまわり。",
+      "caption": "カーハートらしい\nウエストまわり",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -47,27 +47,10 @@
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full2",
-      "sfx": "whoosh",
-      "start": 3.9113333333333338,
-      "end": 6.908666666666667
-    },
-    {
-      "gesture": "explain",
-      "kind": "explain",
-      "voice": "ワタリ32センチ、裾幅22.5センチの、ワイドシルエット。",
-      "caption": "ワタリ32cm・裾幅22.5cm\nワイドシルエット",
-      "expr": "通常",
-      "style": "ふつう",
-      "speed": 1.08,
-      "intonation": 1.1,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "full3",
-      "sfx": null,
-      "start": 7.088666666666667,
-      "end": 12.080666666666666
+      "shot": "top",
+      "sfx": "shutter",
+      "start": 2.0980000000000003,
+      "end": 5.266
     },
     {
       "gesture": "detail",
@@ -83,14 +66,48 @@
       "telop": "sub",
       "shot": "knee",
       "sfx": "shutter",
-      "start": 12.260666666666665,
-      "end": 15.375333333333332
+      "start": 5.446,
+      "end": 8.560666666666666
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
+      "voice": "裾の雰囲気も、いい感じ。",
+      "caption": "裾の雰囲気も\nいい感じ",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.25,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "hem",
+      "sfx": "shutter",
+      "start": 8.740666666666666,
+      "end": 10.884666666666666
+    },
+    {
+      "gesture": "explain",
+      "kind": "explain",
+      "voice": "ワタリ32センチ、裾幅22.5センチの、ワイドシルエット。",
+      "caption": "ワタリ32cm・裾幅22.5cm\nワイドシルエット",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.08,
+      "intonation": 1.1,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full",
+      "sfx": null,
+      "start": 11.064666666666666,
+      "end": 16.056666666666665
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "この価格から狙えるチャンス、見逃せない！",
-      "caption": "¥2,000から\n狙える！",
+      "voice": "これで、2,000円スタート！",
+      "caption": "¥2,000スタート！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -100,13 +117,13 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 15.825333333333331,
-      "end": 18.843999999999998
+      "start": 16.506666666666664,
+      "end": 18.607999999999997
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
+      "voice": "気になったら、プロフのリンクからチェックしてね！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -117,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 19.093999999999998,
-      "end": 23.627333333333333
+      "start": 18.857999999999997,
+      "end": 21.72733333333333
     },
     {
       "gesture": "bye",
@@ -134,8 +151,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 23.827333333333332,
-      "end": 24.477999999999998
+      "start": 21.92733333333333,
+      "end": 22.577999999999996
     }
   ],
   "chips": {

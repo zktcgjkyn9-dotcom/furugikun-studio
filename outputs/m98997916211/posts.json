@@ -1,9 +1,9 @@
 {
   "item_id": "m98997916211",
-  "pattern": "detail",
-  "pattern_name": "ディテール型",
+  "pattern": "question",
+  "pattern_name": "問いかけ型",
   "tiktok": {
-    "caption": "このディテール、見て！\nカーハート ペインターパンツ\nワタリ29cm・裾幅21.5cm\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "caption": "このカーハート、いくらから始まると思う？\nカーハート ペインターパンツ\nワタリ29cm・裾幅21.5cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "hashtags": [
       "#Carhartt",
       "#カーハート",
@@ -15,17 +15,32 @@
   },
   "x": [
     {
+      "angle": "終了告知",
+      "text": "⏰ 11月14日の20時06分終了\nカーハート ペインターパンツ（2,000円スタート）\nhttps://jp.mercari.com/item/m98997916211 #古着 #Carhartt",
+      "length": 112
+    },
+    {
+      "angle": "価格",
+      "text": "【2,000円スタート】\nカーハート ペインターパンツ\nこの価格から狙えます。\nhttps://jp.mercari.com/item/m98997916211 #古着 #Carhartt",
+      "length": 110
+    },
+    {
+      "angle": "お得",
+      "text": "カーハートを2,000円から狙えるチャンス。\nペインターパンツ／ワタリ29cm・裾幅21.5cm\nhttps://jp.mercari.com/item/m98997916211 #古着 #Carhartt",
+      "length": 120
+    },
+    {
       "angle": "特徴",
       "text": "カーハート ペインターパンツ\nワタリ29cm・裾幅21.5cm。いい色落ちが出てます。\nhttps://jp.mercari.com/item/m98997916211 #古着 #Carhartt",
       "length": 114
     }
   ],
   "facts": {
-    "start_price_yen": null,
-    "auction_end": null,
+    "start_price_yen": 2000,
+    "auction_end": "2026-11-14T20:06+09:00",
     "url": "https://jp.mercari.com/item/m98997916211"
   },
-  "generated_at": "2026-11-13T15:19:33",
+  "generated_at": "2026-11-13T15:40:31",
   "credits": [
     "音声：VOICEVOX:白上虎太郎"
   ]

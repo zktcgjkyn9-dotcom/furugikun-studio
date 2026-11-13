@@ -1,13 +1,17 @@
 {
-  "pattern": "detail",
-  "pattern_name": "ディテール型",
+  "pattern": "question",
+  "pattern_name": "問いかけ型",
   "candidates": [
+    "price",
+    "question",
+    "comedy",
+    "auction",
     "detail",
     "intro",
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 23.67,
+  "total_sec": 20.98,
   "bgm": {
     "type": "auto",
     "bpm": 92,
@@ -15,27 +19,27 @@
   },
   "scenes": [
     {
-      "gesture": "hook",
-      "kind": "hook",
-      "voice": "このディテール、見て！",
-      "caption": "このディテール\n見て！",
-      "expr": "驚き",
-      "style": "わーい",
+      "gesture": "think",
+      "kind": "think",
+      "voice": "このカーハート、いくらから始まると思う？",
+      "caption": "このカーハート\nいくらから？",
+      "expr": "困り顔",
+      "style": "ふつう",
       "speed": 1.1,
-      "intonation": 1.25,
+      "intonation": 1.4,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 1.9180000000000001
+      "end": 3.3153333333333332
     },
     {
-      "gesture": "detail",
-      "kind": "detail",
-      "voice": "まずは、カーハートらしい、ウエストまわり。",
-      "caption": "カーハートらしい\nウエストまわり",
+      "gesture": "point",
+      "kind": "point",
+      "voice": "カーハートの、ペインターパンツ。",
+      "caption": "カーハート\nペインターパンツ",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -43,44 +47,10 @@
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "top",
-      "sfx": "shutter",
-      "start": 2.0980000000000003,
-      "end": 5.266
-    },
-    {
-      "gesture": "detail",
-      "kind": "detail",
-      "voice": "一押しは、古着ならではの、いい色落ち！",
-      "caption": "一押しは\n古着ならではの色落ち！",
-      "expr": "自信のある表情",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.35,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "knee",
-      "sfx": "shutter",
-      "start": 5.446,
-      "end": 8.688666666666666
-    },
-    {
-      "gesture": "detail",
-      "kind": "detail",
-      "voice": "裾の雰囲気も、いい感じ。",
-      "caption": "裾の雰囲気も\nいい感じ",
-      "expr": "通常",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "hem",
-      "sfx": "shutter",
-      "start": 8.868666666666666,
-      "end": 11.012666666666666
+      "shot": "full2",
+      "sfx": "whoosh",
+      "start": 3.4953333333333334,
+      "end": 5.618
     },
     {
       "gesture": "explain",
@@ -94,27 +64,44 @@
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full",
+      "shot": "full3",
       "sfx": null,
-      "start": 11.192666666666666,
-      "end": 16.13133333333333
+      "start": 5.798,
+      "end": 10.736666666666666
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "お値段は、2,300円！",
-      "caption": "¥2,300",
-      "expr": "自信のある表情",
+      "voice": "正解は、2,000円スタート！",
+      "caption": "正解は\n¥2,000スタート！",
+      "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
-      "intonation": 1.45,
-      "volume": 1.1,
-      "pause": 0.4,
+      "intonation": 1.55,
+      "volume": 1.15,
+      "pause": 0.45,
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 16.53133333333333,
-      "end": 18.899333333333328
+      "start": 11.186666666666666,
+      "end": 13.671999999999999
+    },
+    {
+      "gesture": "call",
+      "kind": "call",
+      "voice": "当たった人は、コメントで教えて！",
+      "caption": "当たったら\nコメントで！",
+      "expr": "笑顔",
+      "style": "わーい",
+      "speed": 1.1,
+      "intonation": 1.4,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full",
+      "sfx": null,
+      "start": 13.851999999999999,
+      "end": 16.209333333333333
     },
     {
       "gesture": "call",
@@ -130,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 19.149333333333328,
-      "end": 22.01866666666666
+      "start": 16.459333333333333,
+      "end": 19.328666666666667
     },
     {
       "gesture": "bye",
@@ -147,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 22.21866666666666,
-      "end": 22.869333333333326
+      "start": 19.528666666666666,
+      "end": 20.179333333333332
     }
   ],
   "chips": {

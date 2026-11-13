@@ -1,14 +1,18 @@
 {
-  "pattern": "rare",
-  "pattern_name": "希少性訴求型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
+    "price",
     "rare",
     "hype",
+    "question",
     "detail",
+    "auction",
+    "comedy",
     "intro"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 23.9,
+  "total_sec": 24.71,
   "bgm": {
     "type": "auto",
     "bpm": 84,
@@ -18,25 +22,25 @@
     {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "USA製の、カーハート！",
-      "caption": "USA製の\nカーハート！",
+      "voice": "えっ、カーハートが、2,000円スタート！？",
+      "caption": "カーハートが\n2,000円スタート！？",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.55,
-      "volume": 1.0,
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 2.6326666666666667
+      "end": 3.7313333333333336
     },
     {
-      "gesture": "hold",
-      "kind": "hold",
-      "voice": "ダック地のダブルニーペインターパンツ。古着ならではの一本。",
-      "caption": "ダック地のダブルニーペインターパンツ\n古着ならではの一本",
+      "gesture": "point",
+      "kind": "point",
+      "voice": "カーハートの、ダック地のダブルニーペインターパンツ。",
+      "caption": "カーハート\nダック地のダブルニーペインターパンツ",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -46,25 +50,8 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 2.812666666666667,
-      "end": 6.599333333333334
-    },
-    {
-      "gesture": "detail",
-      "kind": "detail",
-      "voice": "タグまわりも、チェックしてみて。",
-      "caption": "タグまわりも\nチェック",
-      "expr": "通常",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "top",
-      "sfx": "shutter",
-      "start": 6.779333333333334,
-      "end": 8.827333333333334
+      "start": 3.9113333333333338,
+      "end": 7.122
     },
     {
       "gesture": "explain",
@@ -80,47 +67,47 @@
       "telop": "sub",
       "shot": "full3",
       "sfx": null,
-      "start": 9.007333333333333,
-      "end": 13.498000000000001
+      "start": 7.302,
+      "end": 11.792666666666666
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
+      "voice": "一押しは、ダックの、いい色落ち！",
+      "caption": "一押しは\nダックの色落ち！",
+      "expr": "自信のある表情",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.35,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "knee",
+      "sfx": "shutter",
+      "start": 11.972666666666665,
+      "end": 14.809999999999999
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "お値段は、2,100円！",
-      "caption": "¥2,100",
-      "expr": "自信のある表情",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥2,000から\n狙える！",
+      "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
-      "intonation": 1.45,
-      "volume": 1.1,
-      "pause": 0.4,
+      "intonation": 1.55,
+      "volume": 1.15,
+      "pause": 0.45,
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 13.898000000000001,
-      "end": 16.042
+      "start": 15.259999999999998,
+      "end": 18.278666666666666
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "使用感はあるから、写真もチェックしてね！",
-      "caption": "使用感あり\n写真をチェック！",
-      "expr": "笑顔",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
-      "pause": 0.25,
-      "telop": "sub",
-      "shot": "full",
-      "sfx": null,
-      "start": 16.292,
-      "end": 19.129333333333335
-    },
-    {
-      "gesture": "call",
-      "kind": "call",
-      "voice": "気になったら、プロフのリンクからチェックしてね！",
+      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -131,8 +118,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 19.379333333333335,
-      "end": 22.24866666666667
+      "start": 18.528666666666666,
+      "end": 23.061999999999998
     },
     {
       "gesture": "bye",
@@ -148,8 +135,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 22.448666666666668,
-      "end": 23.099333333333334
+      "start": 23.261999999999997,
+      "end": 23.912666666666663
     }
   ],
   "chips": {
