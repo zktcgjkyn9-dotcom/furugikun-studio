@@ -589,5 +589,56 @@
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
+  },
+  {
+    "id": "306de6e9",
+    "item_id": "m24633366806",
+    "platform": "tiktok",
+    "variant_key": "2026-11-14T18:37:15",
+    "video": "outputs/m24633366806/furugikun_m24633366806.mp4",
+    "text": "これ、アツい！\nカーハート キャンバス地のダブルニーペインターパンツ\nワタリ29cm・裾幅22cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ダブルニーペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "テンション型",
+    "scheduled_at": "2026-11-16T03:43:35.869187+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "cfe4d14e",
+    "item_id": "m24633366806",
+    "platform": "x",
+    "variant_key": "2026-11-14T18:37:15",
+    "angle": "特徴",
+    "text": "カーハート キャンバス地のダブルニーペインターパンツ\nワタリ29cm・裾幅22cm。いい色落ちが出てます。\nhttps://jp.mercari.com/item/m24633366806 #古着 #Carhartt",
+    "scheduled_at": "2026-11-16T12:30:00+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "9652795d",
+    "item_id": "m77110842458",
+    "platform": "tiktok",
+    "variant_key": "2026-11-14T18:40:34",
+    "video": "outputs/m77110842458/furugikun_m77110842458.mp4",
+    "text": "えっ、カーハートが2,000円スタート！？\nカーハート ダック地のペインターパンツ\nワタリ31cm・裾幅25cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-16T03:43:35.870608+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "339cf558",
+    "item_id": "m87834042849",
+    "platform": "tiktok",
+    "variant_key": "2026-11-14T18:43:35",
+    "video": "outputs/m87834042849/furugikun_m87834042849.mp4",
+    "text": "このカーハート、いくらから始まると思う？\nカーハート ダック地のダブルニーペインターパンツ\nワタリ30cm・裾幅24cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ダブルニーペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-11-16T03:43:35.871092+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
   }
 ]
