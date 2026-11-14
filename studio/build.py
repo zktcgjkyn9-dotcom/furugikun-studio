@@ -431,9 +431,9 @@ def build(item_id, mock=False, skip_sold=False, variant=0, pattern=None):
         cmd += ['-stream_loop', '-1', '-i', str(music)]
         fc += (f'[3:a]aresample=44100,aformat=channel_layouts=stereo,volume={vol},afade=t=out:st={max(0, total - 1.2):.2f}:d=1.2[m];'
                '[m][v1]sidechaincompress=threshold=0.02:ratio=5:attack=15:release=350[md];'
-               '[v2][md][fx]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-15:TP=-2:LRA=9[a]')
+               '[v2][md][fx]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-16:TP=-3:LRA=9,alimiter=limit=0.79:attack=5:release=50:level=false[a]')
     else:
-        fc += '[v2][fx]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-15:TP=-2:LRA=9[a]'
+        fc += '[v2][fx]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-16:TP=-3:LRA=9,alimiter=limit=0.79:attack=5:release=50:level=false[a]'
     cmd += ['-filter_complex', fc, '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
             '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-t', f'{total:.3f}', '-movflags', '+faststart', str(mp4)]
     subprocess.run(cmd, check=True)
