@@ -405,7 +405,7 @@
     "text": "えっ、カーハートが2,000円スタート！？\nカーハート ダック地のダブルニーペインターパンツ\nワタリ30cm・裾幅22cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ダブルニーペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "価格訴求型",
     "scheduled_at": "2026-12-09T19:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -418,6 +418,19 @@
     "text": "このカーハート、いくらから始まると思う？\nカーハート ペインターパンツ\nワタリ29cm・裾幅21.5cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-12-10T19:30:00+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "3efe8d78",
+    "item_id": "m87280386225",
+    "platform": "tiktok",
+    "variant_key": "2026-11-14T02:12:30",
+    "video": "outputs/m87280386225/furugikun_m87280386225.mp4",
+    "text": "USA製のカーハート！\nカーハート ダック地のダブルニーペインターパンツ\nワタリ30cm・裾幅22cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ダブルニーペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "希少性訴求型",
+    "scheduled_at": "2026-12-11T19:30:00+09:00",
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
