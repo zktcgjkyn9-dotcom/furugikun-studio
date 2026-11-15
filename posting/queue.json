@@ -705,5 +705,30 @@
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
+  },
+  {
+    "id": "d5dcf100",
+    "item_id": "m75284397711",
+    "platform": "tiktok",
+    "variant_key": "2026-11-15T16:37:26",
+    "video": "outputs/m75284397711/furugikun_m75284397711.mp4",
+    "text": "このカーハート、いくらから始まると思う？\nカーハート ダック地のペインターパンツ\nワタリ34cm・裾幅25.5cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-12-15T19:30:00+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "68384647",
+    "item_id": "m75284397711",
+    "platform": "x",
+    "variant_key": "2026-11-15T16:37:26",
+    "angle": "人気",
+    "text": "カーハートのUSA製、出品しました。\nダック地のペインターパンツ／2,000円スタート\nhttps://jp.mercari.com/item/m75284397711 #古着 #Carhartt",
+    "scheduled_at": "2026-11-16T21:00:00+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
   }
 ]
