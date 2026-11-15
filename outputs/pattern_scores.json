@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-15T19:40:45+09:00",
+  "updated": "2026-11-15T21:41:37+09:00",
   "by_pattern": {
     "price": {
       "name": "価格訴求型",
-      "videos": 4,
+      "videos": 5,
       "posted": 0,
       "sold": 2,
-      "like_gain": 3,
-      "bids": 36
+      "like_gain": 4,
+      "bids": 37
     },
     "auction": {
       "name": "オークション訴求型",
@@ -19,11 +19,11 @@
     },
     "rare": {
       "name": "希少性訴求型",
-      "videos": 2,
+      "videos": 1,
       "posted": 0,
       "sold": 1,
       "like_gain": -1,
-      "bids": 5
+      "bids": 4
     },
     "question": {
       "name": "問いかけ型",
