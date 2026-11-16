@@ -933,5 +933,57 @@
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
+  },
+  {
+    "id": "4099e7df",
+    "item_id": "m27185176335",
+    "platform": "tiktok",
+    "variant_key": "2026-11-16T18:51:16",
+    "video": "outputs/m27185176335/furugikun_m27185176335.mp4",
+    "text": "これ、アツい！\nカーハート ダック地のダブルニーペインターパンツ\nワタリ27cm・裾幅18cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ダブルニーペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "テンション型",
+    "scheduled_at": "2026-11-18T03:58:16.022093+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "813fa35e",
+    "item_id": "m31772718075",
+    "platform": "tiktok",
+    "variant_key": "2026-11-16T18:53:41",
+    "video": "outputs/m31772718075/furugikun_m31772718075.mp4",
+    "text": "USA製のカーハート！\nカーハート ダック地のペインターパンツ\nワタリ29cm・裾幅22.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "希少性訴求型",
+    "scheduled_at": "2026-11-18T03:58:16.022275+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "40576417",
+    "item_id": "m88779373406",
+    "platform": "tiktok",
+    "variant_key": "2026-11-16T18:56:11",
+    "video": "outputs/m88779373406/furugikun_m88779373406.mp4",
+    "text": "えっ、カーハートが300円スタート！？\nカーハート ペインターパンツ\nワタリ29cm・裾幅21.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-18T03:58:16.023358+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "930ae154",
+    "item_id": "m98949898639",
+    "platform": "tiktok",
+    "variant_key": "2026-11-16T18:58:15",
+    "video": "outputs/m98949898639/furugikun_m98949898639.mp4",
+    "text": "このカーハート、いくらから始まると思う？\nカーハート ペインターパンツ\nワタリ25cm・裾幅20.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-11-18T03:58:16.023603+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
   }
 ]
