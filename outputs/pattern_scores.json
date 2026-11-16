@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T14:25:12+09:00",
+  "updated": "2026-11-16T17:13:25+09:00",
   "by_pattern": {
     "price": {
       "name": "価格訴求型",
@@ -13,9 +13,9 @@
       "name": "オークション訴求型",
       "videos": 2,
       "posted": 0,
-      "sold": 0,
-      "like_gain": 6,
-      "bids": 13
+      "sold": 1,
+      "like_gain": 4,
+      "bids": 14
     },
     "rare": {
       "name": "希少性訴求型",
