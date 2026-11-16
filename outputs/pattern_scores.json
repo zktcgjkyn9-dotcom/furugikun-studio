@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-16T17:13:25+09:00",
+  "updated": "2026-11-16T20:21:01+09:00",
   "by_pattern": {
     "price": {
       "name": "価格訴求型",
       "videos": 5,
       "posted": 0,
-      "sold": 2,
-      "like_gain": 8,
-      "bids": 42
+      "sold": 3,
+      "like_gain": 25,
+      "bids": 61
     },
     "auction": {
       "name": "オークション訴求型",
@@ -22,16 +22,16 @@
       "videos": 3,
       "posted": 0,
       "sold": 1,
-      "like_gain": 5,
-      "bids": 12
+      "like_gain": 10,
+      "bids": 17
     },
     "question": {
       "name": "問いかけ型",
-      "videos": 4,
+      "videos": 5,
       "posted": 0,
       "sold": 3,
-      "like_gain": 2,
-      "bids": 28
+      "like_gain": 5,
+      "bids": 32
     },
     "detail": {
       "name": "ディテール型",
@@ -48,14 +48,6 @@
       "sold": 0,
       "like_gain": 0,
       "bids": 0
-    },
-    "hype": {
-      "name": "テンション型",
-      "videos": 1,
-      "posted": 0,
-      "sold": 0,
-      "like_gain": 16,
-      "bids": 8
     }
   },
   "weights": {}

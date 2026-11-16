@@ -1,6 +1,6 @@
 {
-  "pattern": "hype",
-  "pattern_name": "テンション型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
     "price",
     "hype",
@@ -11,7 +11,7 @@
     "intro"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 19.23,
+  "total_sec": 25.8,
   "bgm": {
     "type": "auto",
     "bpm": 92,
@@ -21,36 +21,36 @@
     {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "うわっ、これ、アツい！",
-      "caption": "これ、アツい！",
+      "voice": "えっ、カーハートが、300円スタート！？",
+      "caption": "カーハートが\n300円スタート！？",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.15,
-      "intonation": 1.7,
-      "volume": 1.2,
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 2.408666666666667
+      "end": 3.816666666666667
     },
     {
       "gesture": "point",
       "kind": "point",
-      "voice": "カーハートの、ダブルニー！",
-      "caption": "カーハートの\nダブルニー！",
-      "expr": "自信のある表情",
-      "style": "わーい",
-      "speed": 1.12,
-      "intonation": 1.5,
+      "voice": "カーハートの、キャンバス地のダブルニーペインターパンツ。",
+      "caption": "カーハート\nキャンバス地のダブルニーペインターパンツ",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.25,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full",
+      "shot": "full2",
       "sfx": "whoosh",
-      "start": 2.588666666666667,
-      "end": 4.434
+      "start": 3.996666666666667,
+      "end": 7.4846666666666675
     },
     {
       "gesture": "explain",
@@ -64,14 +64,14 @@
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full2",
+      "shot": "full3",
       "sfx": null,
-      "start": 4.614,
-      "end": 9.456666666666667
+      "start": 7.664666666666667,
+      "end": 12.507333333333333
     },
     {
-      "gesture": "push",
-      "kind": "push",
+      "gesture": "detail",
+      "kind": "detail",
       "voice": "一押しは、キャンバスの、いい色落ち！",
       "caption": "一押しは\nキャンバスの色落ち！",
       "expr": "自信のある表情",
@@ -82,15 +82,15 @@
       "pause": 0.18,
       "telop": "sub",
       "shot": "knee",
-      "sfx": "ding",
-      "start": 9.636666666666667,
-      "end": 12.676666666666666
+      "sfx": "shutter",
+      "start": 12.687333333333333,
+      "end": 15.727333333333334
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "しかも、300円スタート！",
-      "caption": "¥300スタート！",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥300から\n狙える！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -100,25 +100,25 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 13.126666666666665,
-      "end": 15.387999999999998
+      "start": 16.177333333333333,
+      "end": 19.196
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "気になったら、今すぐチェック！",
-      "caption": "今すぐチェック！",
+      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
+      "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
-      "style": "わーい",
+      "style": "ふつう",
       "speed": 1.1,
-      "intonation": 1.5,
+      "intonation": 1.3,
       "volume": 1.0,
-      "pause": 0.18,
+      "pause": 0.25,
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 15.567999999999998,
-      "end": 17.616
+      "start": 19.446,
+      "end": 24.182000000000002
     },
     {
       "gesture": "bye",
@@ -134,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.816,
-      "end": 18.434666666666665
+      "start": 24.382,
+      "end": 25.000666666666667
     }
   ],
   "chips": {
