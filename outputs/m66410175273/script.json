@@ -1,6 +1,6 @@
 {
-  "pattern": "rare",
-  "pattern_name": "希少性訴求型",
+  "pattern": "question",
+  "pattern_name": "問いかけ型",
   "candidates": [
     "price",
     "rare",
@@ -12,7 +12,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 24.37,
+  "total_sec": 22.09,
   "bgm": {
     "type": "auto",
     "bpm": 88,
@@ -20,27 +20,27 @@
   },
   "scenes": [
     {
-      "gesture": "hook",
-      "kind": "hook",
-      "voice": "USA製の、カーハート！",
-      "caption": "USA製の\nカーハート！",
-      "expr": "驚き",
-      "style": "わーい",
+      "gesture": "think",
+      "kind": "think",
+      "voice": "このカーハート、いくらから始まると思う？",
+      "caption": "このカーハート\nいくらから？",
+      "expr": "困り顔",
+      "style": "ふつう",
       "speed": 1.1,
-      "intonation": 1.55,
+      "intonation": 1.4,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 2.622
+      "end": 3.454
     },
     {
-      "gesture": "hold",
-      "kind": "hold",
-      "voice": "ダック地のペインターパンツ。古着ならではの一本。",
-      "caption": "ダック地のペインターパンツ\n古着ならではの一本",
+      "gesture": "point",
+      "kind": "point",
+      "voice": "カーハートの、ダック地のペインターパンツ。",
+      "caption": "カーハート\nダック地のペインターパンツ",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -50,25 +50,8 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 2.802,
-      "end": 6.279333333333334
-    },
-    {
-      "gesture": "detail",
-      "kind": "detail",
-      "voice": "タグまわりも、チェックしてみて。",
-      "caption": "タグまわりも\nチェック",
-      "expr": "通常",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "top",
-      "sfx": "shutter",
-      "start": 6.459333333333333,
-      "end": 8.624666666666666
+      "start": 3.6340000000000003,
+      "end": 6.503333333333334
     },
     {
       "gesture": "explain",
@@ -84,14 +67,14 @@
       "telop": "sub",
       "shot": "full3",
       "sfx": null,
-      "start": 8.804666666666666,
-      "end": 13.796666666666667
+      "start": 6.683333333333334,
+      "end": 11.675333333333334
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "なんと、300円スタート！",
-      "caption": "¥300スタート！",
+      "voice": "正解は、300円スタート！",
+      "caption": "正解は\n¥300スタート！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -101,25 +84,25 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 14.246666666666666,
-      "end": 16.454666666666668
+      "start": 12.125333333333334,
+      "end": 14.653333333333334
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "細かい状態は、写真でチェックしてね！",
-      "caption": "細かい状態は\n写真でチェック！",
+      "voice": "当たった人は、コメントで教えて！",
+      "caption": "当たったら\nコメントで！",
       "expr": "笑顔",
-      "style": "ふつう",
+      "style": "わーい",
       "speed": 1.1,
-      "intonation": 1.25,
+      "intonation": 1.4,
       "volume": 1.0,
-      "pause": 0.25,
+      "pause": 0.18,
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 16.704666666666668,
-      "end": 19.542
+      "start": 14.833333333333334,
+      "end": 17.265333333333334
     },
     {
       "gesture": "call",
@@ -135,8 +118,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 19.792,
-      "end": 22.74666666666667
+      "start": 17.515333333333334,
+      "end": 20.470000000000002
     },
     {
       "gesture": "bye",
@@ -152,8 +135,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 22.94666666666667,
-      "end": 23.565333333333335
+      "start": 20.67,
+      "end": 21.288666666666668
     }
   ],
   "chips": {

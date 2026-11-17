@@ -1,6 +1,6 @@
 {
-  "pattern": "auction",
-  "pattern_name": "オークション訴求型",
+  "pattern": "question",
+  "pattern_name": "問いかけ型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 19.07,
+  "total_sec": 21.85,
   "bgm": {
     "type": "auto",
     "bpm": 92,
@@ -19,21 +19,21 @@
   },
   "scenes": [
     {
-      "gesture": "hook",
-      "kind": "hook",
-      "voice": "オークション、11月18日の20時37分まで！",
-      "caption": "オークション\n11月18日の20時37分まで！",
-      "expr": "驚き",
-      "style": "わーい",
+      "gesture": "think",
+      "kind": "think",
+      "voice": "このカーハート、いくらから始まると思う？",
+      "caption": "このカーハート\nいくらから？",
+      "expr": "困り顔",
+      "style": "ふつう",
       "speed": 1.1,
-      "intonation": 1.25,
+      "intonation": 1.4,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 4.67
+      "end": 3.454
     },
     {
       "gesture": "point",
@@ -49,31 +49,31 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 4.85,
-      "end": 7.826
+      "start": 3.6340000000000003,
+      "end": 6.61
     },
     {
-      "gesture": "push",
-      "kind": "push",
-      "voice": "一押しは、キャンバスの、いい色落ち！",
-      "caption": "一押しは\nキャンバスの色落ち！",
-      "expr": "自信のある表情",
+      "gesture": "explain",
+      "kind": "explain",
+      "voice": "ワタリ27センチ、裾幅20センチの、ワイドシルエット。",
+      "caption": "ワタリ27cm・裾幅20cm\nワイドシルエット",
+      "expr": "通常",
       "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.35,
+      "speed": 1.08,
+      "intonation": 1.1,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "knee",
-      "sfx": "ding",
-      "start": 8.006,
-      "end": 11.046
+      "shot": "full3",
+      "sfx": null,
+      "start": 6.79,
+      "end": 11.440666666666667
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "300円スタートで、参加できる！",
-      "caption": "¥300スタート\n参加できる！",
+      "voice": "正解は、300円スタート！",
+      "caption": "正解は\n¥300スタート！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -83,13 +83,30 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 11.495999999999999,
-      "end": 14.173333333333332
+      "start": 11.890666666666666,
+      "end": 14.418666666666667
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "終わる前に、プロフのリンクからチェックしてね！",
+      "voice": "当たった人は、コメントで教えて！",
+      "caption": "当たったら\nコメントで！",
+      "expr": "笑顔",
+      "style": "わーい",
+      "speed": 1.1,
+      "intonation": 1.4,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full",
+      "sfx": null,
+      "start": 14.598666666666666,
+      "end": 17.030666666666665
+    },
+    {
+      "gesture": "call",
+      "kind": "call",
+      "voice": "気になったら、プロフのリンクからチェックしてね！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -100,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 14.423333333333332,
-      "end": 17.452666666666666
+      "start": 17.280666666666665,
+      "end": 20.235333333333333
     },
     {
       "gesture": "bye",
@@ -117,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.652666666666665,
-      "end": 18.27133333333333
+      "start": 20.435333333333332,
+      "end": 21.054
     }
   ],
   "chips": {
