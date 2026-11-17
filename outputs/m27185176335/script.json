@@ -1,6 +1,6 @@
 {
-  "pattern": "hype",
-  "pattern_name": "テンション型",
+  "pattern": "question",
+  "pattern_name": "問いかけ型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "intro"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 19.2,
+  "total_sec": 22.48,
   "bgm": {
     "type": "auto",
     "bpm": 84,
@@ -19,38 +19,38 @@
   },
   "scenes": [
     {
-      "gesture": "hook",
-      "kind": "hook",
-      "voice": "うわっ、これ、アツい！",
-      "caption": "これ、アツい！",
-      "expr": "驚き",
-      "style": "わーい",
-      "speed": 1.15,
-      "intonation": 1.7,
-      "volume": 1.2,
+      "gesture": "think",
+      "kind": "think",
+      "voice": "このカーハート、いくらから始まると思う？",
+      "caption": "このカーハート\nいくらから？",
+      "expr": "困り顔",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.4,
+      "volume": 1.0,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 2.408666666666667
+      "end": 3.454
     },
     {
       "gesture": "point",
       "kind": "point",
-      "voice": "カーハートの、ダブルニー！",
-      "caption": "カーハートの\nダブルニー！",
-      "expr": "自信のある表情",
-      "style": "わーい",
-      "speed": 1.12,
-      "intonation": 1.5,
+      "voice": "カーハートの、ダック地のダブルニーペインターパンツ。",
+      "caption": "カーハート\nダック地のダブルニーペインターパンツ",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.25,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full",
+      "shot": "full2",
       "sfx": "whoosh",
-      "start": 2.588666666666667,
-      "end": 4.434
+      "start": 3.6340000000000003,
+      "end": 7.026
     },
     {
       "gesture": "explain",
@@ -64,33 +64,16 @@
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
-      "shot": "full2",
+      "shot": "full3",
       "sfx": null,
-      "start": 4.614,
-      "end": 9.478
-    },
-    {
-      "gesture": "push",
-      "kind": "push",
-      "voice": "一押しは、ダックの、いい色落ち！",
-      "caption": "一押しは\nダックの色落ち！",
-      "expr": "自信のある表情",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.35,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "knee",
-      "sfx": "ding",
-      "start": 9.658,
-      "end": 12.644666666666666
+      "start": 7.2059999999999995,
+      "end": 12.07
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "しかも、300円スタート！",
-      "caption": "¥300スタート！",
+      "voice": "正解は、300円スタート！",
+      "caption": "正解は\n¥300スタート！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -100,25 +83,42 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 13.094666666666665,
-      "end": 15.355999999999998
+      "start": 12.52,
+      "end": 15.048
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "気になったら、今すぐチェック！",
-      "caption": "今すぐチェック！",
+      "voice": "当たった人は、コメントで教えて！",
+      "caption": "当たったら\nコメントで！",
       "expr": "笑顔",
       "style": "わーい",
       "speed": 1.1,
-      "intonation": 1.5,
+      "intonation": 1.4,
       "volume": 1.0,
       "pause": 0.18,
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 15.535999999999998,
-      "end": 17.583999999999996
+      "start": 15.228,
+      "end": 17.66
+    },
+    {
+      "gesture": "call",
+      "kind": "call",
+      "voice": "気になったら、プロフのリンクからチェックしてね！",
+      "caption": "プロフのリンクから\nチェック！",
+      "expr": "笑顔",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.3,
+      "volume": 1.0,
+      "pause": 0.25,
+      "telop": "sub",
+      "shot": "full",
+      "sfx": null,
+      "start": 17.91,
+      "end": 20.86466666666667
     },
     {
       "gesture": "bye",
@@ -134,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.783999999999995,
-      "end": 18.40266666666666
+      "start": 21.064666666666668,
+      "end": 21.683333333333334
     }
   ],
   "chips": {
