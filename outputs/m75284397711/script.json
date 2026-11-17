@@ -1,6 +1,6 @@
 {
-  "pattern": "question",
-  "pattern_name": "問いかけ型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
     "price",
     "rare",
@@ -12,7 +12,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 22.38,
+  "total_sec": 25.58,
   "bgm": {
     "type": "auto",
     "bpm": 96,
@@ -20,21 +20,21 @@
   },
   "scenes": [
     {
-      "gesture": "think",
-      "kind": "think",
-      "voice": "このカーハート、いくらから始まると思う？",
-      "caption": "このカーハート\nいくらから？",
-      "expr": "困り顔",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.4,
-      "volume": 1.0,
+      "gesture": "hook",
+      "kind": "hook",
+      "voice": "えっ、カーハートが、2,000円スタート！？",
+      "caption": "カーハートが\n2,000円スタート！？",
+      "expr": "驚き",
+      "style": "わーい",
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 3.454
+      "end": 3.6673333333333336
     },
     {
       "gesture": "point",
@@ -50,8 +50,8 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 3.6340000000000003,
-      "end": 6.503333333333334
+      "start": 3.8473333333333337,
+      "end": 6.716666666666667
     },
     {
       "gesture": "explain",
@@ -67,14 +67,31 @@
       "telop": "sub",
       "shot": "full3",
       "sfx": null,
-      "start": 6.683333333333334,
-      "end": 12.123333333333335
+      "start": 6.8966666666666665,
+      "end": 12.336666666666666
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
+      "voice": "一押しは、ダックの、いい色落ち！",
+      "caption": "一押しは\nダックの色落ち！",
+      "expr": "自信のある表情",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.35,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "knee",
+      "sfx": "shutter",
+      "start": 12.516666666666666,
+      "end": 15.503333333333332
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "正解は、2,000円スタート！",
-      "caption": "正解は\n¥2,000スタート！",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥2,000から\n狙える！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -84,30 +101,13 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 12.573333333333334,
-      "end": 14.941333333333334
+      "start": 15.953333333333331,
+      "end": 18.971999999999998
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "当たった人は、コメントで教えて！",
-      "caption": "当たったら\nコメントで！",
-      "expr": "笑顔",
-      "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.4,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "full",
-      "sfx": null,
-      "start": 15.121333333333334,
-      "end": 17.553333333333335
-    },
-    {
-      "gesture": "call",
-      "kind": "call",
-      "voice": "気になったら、プロフのリンクからチェックしてね！",
+      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -118,8 +118,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.803333333333335,
-      "end": 20.758000000000003
+      "start": 19.221999999999998,
+      "end": 23.958
     },
     {
       "gesture": "bye",
@@ -135,8 +135,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 20.958000000000002,
-      "end": 21.576666666666668
+      "start": 24.157999999999998,
+      "end": 24.776666666666664
     }
   ],
   "chips": {

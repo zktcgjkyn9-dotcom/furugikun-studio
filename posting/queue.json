@@ -804,7 +804,7 @@
     "text": "えっ、カーハートが2,000円スタート！？\nカーハート ダック地のペインターパンツ\nワタリ29cm・裾幅23cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "価格訴求型",
     "scheduled_at": "2026-11-17T23:58:28.684548+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -816,7 +816,7 @@
     "angle": "価格",
     "text": "【2,000円スタート】\nカーハート ダック地のペインターパンツ\nこの価格から狙えます。\nhttps://jp.mercari.com/item/m47412437965 #古着 #Carhartt",
     "scheduled_at": "2026-11-17T12:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -829,7 +829,7 @@
     "text": "このカーハート、いくらから始まると思う？\nカーハート ダック地のペインターパンツ\nワタリ34cm・裾幅25.5cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-11-17T23:58:28.685243+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -982,6 +982,32 @@
     "text": "このカーハート、いくらから始まると思う？\nカーハート ペインターパンツ\nワタリ25cm・裾幅20.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-11-18T03:58:16.023603+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "2c662b1e",
+    "item_id": "m47412437965",
+    "platform": "tiktok",
+    "variant_key": "2026-11-17T10:59:02",
+    "video": "outputs/m47412437965/furugikun_m47412437965.mp4",
+    "text": "USA製のカーハート！\nカーハート ダック地のペインターパンツ\nワタリ29cm・裾幅23cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "希少性訴求型",
+    "scheduled_at": "2026-11-18T20:01:57.226274+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "3a754e5d",
+    "item_id": "m75284397711",
+    "platform": "tiktok",
+    "variant_key": "2026-11-17T11:01:56",
+    "video": "outputs/m75284397711/furugikun_m75284397711.mp4",
+    "text": "えっ、カーハートが2,000円スタート！？\nカーハート ダック地のペインターパンツ\nワタリ34cm・裾幅25.5cm\n▶ 2,000円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-18T20:01:57.226864+09:00",
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
