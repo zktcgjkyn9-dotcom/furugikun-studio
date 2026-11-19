@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-19T19:54:55+09:00",
+  "updated": "2026-11-19T22:17:47+09:00",
   "by_pattern": {
     "price": {
       "name": "価格訴求型",
       "videos": 12,
       "posted": 0,
       "sold": 7,
-      "like_gain": 33,
-      "bids": 112
+      "like_gain": 50,
+      "bids": 125
     },
     "question": {
       "name": "問いかけ型",
       "videos": 10,
       "posted": 0,
       "sold": 7,
-      "like_gain": 58,
-      "bids": 94
+      "like_gain": 81,
+      "bids": 107
     },
     "intro": {
       "name": "商品紹介型",
@@ -46,16 +46,16 @@
       "videos": 5,
       "posted": 0,
       "sold": 2,
-      "like_gain": 18,
-      "bids": 49
+      "like_gain": 35,
+      "bids": 59
     },
-    "hype": {
-      "name": "テンション型",
+    "comedy": {
+      "name": "コメディ型",
       "videos": 1,
       "posted": 0,
       "sold": 0,
-      "like_gain": 0,
-      "bids": 6
+      "like_gain": 5,
+      "bids": 5
     }
   },
   "weights": {}
