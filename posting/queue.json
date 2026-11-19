@@ -1601,5 +1601,70 @@
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
+  },
+  {
+    "id": "68e59a8a",
+    "item_id": "m41477927739",
+    "platform": "tiktok",
+    "variant_key": "2026-11-19T18:57:36",
+    "video": "outputs/m41477927739/furugikun_m41477927739.mp4",
+    "text": "えっ、カーハートが300円スタート！？\nカーハート キャンバス地のペインターパンツ\nワタリ29cm・裾幅19cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-21T04:06:49.175654+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "5f7ecb23",
+    "item_id": "m58661759473",
+    "platform": "tiktok",
+    "variant_key": "2026-11-19T19:00:09",
+    "video": "outputs/m58661759473/furugikun_m58661759473.mp4",
+    "text": "このディテール、見て！\nカーハート デニム地のジーンズ その他（タン）\nワタリ27cm・裾幅21cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "ディテール型",
+    "scheduled_at": "2026-11-21T04:06:49.176463+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "50dc0069",
+    "item_id": "m77989739417",
+    "platform": "tiktok",
+    "variant_key": "2026-11-19T19:02:12",
+    "video": "outputs/m77989739417/furugikun_m77989739417.mp4",
+    "text": "このカーハート、いくらから始まると思う？\nカーハート ペインターパンツ（ネイビー）\nワタリ27cm・裾幅20cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-11-21T04:06:49.177303+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "854510fe",
+    "item_id": "m80172870946",
+    "platform": "tiktok",
+    "variant_key": "2026-11-19T19:04:56",
+    "video": "outputs/m80172870946/furugikun_m80172870946.mp4",
+    "text": "えっ、カーハートが300円スタート！？\nカーハート デニム地のジーンズ その他（タン）\nワタリ33cm・裾幅23cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-21T04:06:49.177535+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "152da41e",
+    "item_id": "m87798999238",
+    "platform": "tiktok",
+    "variant_key": "2026-11-19T19:06:48",
+    "video": "outputs/m87798999238/furugikun_m87798999238.mp4",
+    "text": "オークション、11月21日の20時12分まで！\nカーハート キャンバス地のペインターパンツ\nワタリ29cm・裾幅22cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "オークション訴求型",
+    "scheduled_at": "2026-11-21T04:06:49.178001+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
   }
 ]
