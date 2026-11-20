@@ -1,6 +1,6 @@
 {
-  "pattern": "comedy",
-  "pattern_name": "コメディ型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 19.26,
+  "total_sec": 25.74,
   "bgm": {
     "type": "auto",
     "bpm": 88,
@@ -19,44 +19,27 @@
   },
   "scenes": [
     {
-      "gesture": "doubletake",
-      "kind": "doubletake",
-      "voice": "ちょ、ちょっと待って…",
-      "caption": "ちょ、ちょっと待って…",
-      "expr": "困り顔",
-      "style": "びくびく",
-      "speed": 0.95,
-      "intonation": 1.3,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "big",
-      "shot": "full",
-      "sfx": "boing",
-      "start": 0.35,
-      "end": 2.163333333333333
-    },
-    {
       "gesture": "hook",
       "kind": "hook",
-      "voice": "このカーハート、300円スタートって、ほんと！？",
+      "voice": "えっ、カーハートが、300円スタート！？",
       "caption": "カーハートが\n300円スタート！？",
       "expr": "驚き",
       "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.65,
-      "volume": 1.2,
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
-      "start": 2.3433333333333333,
-      "end": 6.076666666666666
+      "start": 0.35,
+      "end": 3.816666666666667
     },
     {
       "gesture": "point",
       "kind": "point",
-      "voice": "キャンバス地のペインターパンツだよ？",
-      "caption": "キャンバス地のペインターパンツだよ？",
+      "voice": "カーハートの、キャンバス地のペインターパンツ。",
+      "caption": "カーハート\nキャンバス地のペインターパンツ",
       "expr": "通常",
       "style": "ふつう",
       "speed": 1.1,
@@ -66,12 +49,29 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 6.256666666666666,
-      "end": 8.453999999999999
+      "start": 3.996666666666667,
+      "end": 6.972666666666667
     },
     {
-      "gesture": "push",
-      "kind": "push",
+      "gesture": "explain",
+      "kind": "explain",
+      "voice": "ワタリ27センチ、裾幅21.5センチの、すっきりシルエット。",
+      "caption": "ワタリ27cm・裾幅21.5cm\nすっきりシルエット",
+      "expr": "通常",
+      "style": "ふつう",
+      "speed": 1.08,
+      "intonation": 1.1,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "full3",
+      "sfx": null,
+      "start": 7.152666666666667,
+      "end": 12.443333333333333
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
       "voice": "一押しは、キャンバスの、いい色落ち！",
       "caption": "一押しは\nキャンバスの色落ち！",
       "expr": "自信のある表情",
@@ -82,31 +82,31 @@
       "pause": 0.18,
       "telop": "sub",
       "shot": "knee",
-      "sfx": "ding",
-      "start": 8.633999999999999,
-      "end": 11.674
+      "sfx": "shutter",
+      "start": 12.623333333333333,
+      "end": 15.663333333333334
     },
     {
-      "gesture": "call",
-      "kind": "call",
-      "voice": "古着くん、思わず二度見しちゃった！",
-      "caption": "思わず二度見！",
-      "expr": "笑顔",
+      "gesture": "price",
+      "kind": "price",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥300から\n狙える！",
+      "expr": "驚き",
       "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.25,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
+      "speed": 1.0,
+      "intonation": 1.55,
+      "volume": 1.15,
+      "pause": 0.45,
+      "telop": "price",
       "shot": "full",
-      "sfx": "boing",
-      "start": 11.854,
-      "end": 14.435333333333332
+      "sfx": "drum",
+      "start": 16.113333333333333,
+      "end": 19.132
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "気になったら、プロフのリンクからチェックしてね！",
+      "voice": "カーハートをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -117,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 14.685333333333332,
-      "end": 17.64
+      "start": 19.382,
+      "end": 24.118000000000002
     },
     {
       "gesture": "bye",
@@ -134,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.84,
-      "end": 18.458666666666666
+      "start": 24.318,
+      "end": 24.936666666666667
     }
   ],
   "chips": {
