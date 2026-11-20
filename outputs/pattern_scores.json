@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T00:04:33+09:00",
+  "updated": "2026-11-21T02:41:45+09:00",
   "by_pattern": {
     "rare": {
       "name": "希少性訴求型",
@@ -14,16 +14,16 @@
       "videos": 5,
       "posted": 0,
       "sold": 3,
-      "like_gain": 24,
-      "bids": 31
+      "like_gain": 32,
+      "bids": 40
     },
     "question": {
       "name": "問いかけ型",
       "videos": 13,
       "posted": 0,
-      "sold": 7,
-      "like_gain": 142,
-      "bids": 163
+      "sold": 9,
+      "like_gain": 151,
+      "bids": 189
     },
     "auction": {
       "name": "オークション訴求型",
@@ -38,8 +38,8 @@
       "videos": 14,
       "posted": 0,
       "sold": 8,
-      "like_gain": 74,
-      "bids": 151
+      "like_gain": 90,
+      "bids": 157
     },
     "hype": {
       "name": "テンション型",
@@ -61,7 +61,7 @@
       "name": "コメディ型",
       "videos": 1,
       "posted": 0,
-      "sold": 0,
+      "sold": 1,
       "like_gain": 5,
       "bids": 3
     }
