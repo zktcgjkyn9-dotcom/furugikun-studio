@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-20T16:03:34+09:00",
+  "updated": "2026-11-20T17:54:47+09:00",
   "by_pattern": {
-    "rare": {
-      "name": "希少性訴求型",
-      "videos": 5,
+    "intro": {
+      "name": "商品紹介型",
+      "videos": 1,
       "posted": 0,
-      "sold": 4,
-      "like_gain": 43,
-      "bids": 108
+      "sold": 0,
+      "like_gain": 0,
+      "bids": 0
     },
-    "detail": {
-      "name": "ディテール型",
-      "videos": 5,
+    "price": {
+      "name": "価格訴求型",
+      "videos": 14,
       "posted": 0,
-      "sold": 2,
-      "like_gain": 27,
-      "bids": 23
+      "sold": 7,
+      "like_gain": 70,
+      "bids": 133
     },
     "question": {
       "name": "問いかけ型",
@@ -33,21 +33,13 @@
       "like_gain": 35,
       "bids": 56
     },
-    "price": {
-      "name": "価格訴求型",
-      "videos": 14,
+    "rare": {
+      "name": "希少性訴求型",
+      "videos": 5,
       "posted": 0,
-      "sold": 7,
-      "like_gain": 70,
-      "bids": 133
-    },
-    "intro": {
-      "name": "商品紹介型",
-      "videos": 1,
-      "posted": 0,
-      "sold": 0,
-      "like_gain": 0,
-      "bids": 0
+      "sold": 4,
+      "like_gain": 43,
+      "bids": 108
     },
     "comedy": {
       "name": "コメディ型",
@@ -56,6 +48,14 @@
       "sold": 0,
       "like_gain": 10,
       "bids": 8
+    },
+    "detail": {
+      "name": "ディテール型",
+      "videos": 5,
+      "posted": 0,
+      "sold": 2,
+      "like_gain": 27,
+      "bids": 23
     }
   },
   "weights": {}
