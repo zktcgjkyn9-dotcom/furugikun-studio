@@ -1856,7 +1856,7 @@
     "text": "ヴィンテージのリーバイス！\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅21cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "希少性訴求型",
     "scheduled_at": "2026-11-22T04:23:59.339822+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -1868,7 +1868,7 @@
     "angle": "終了告知",
     "text": "⏰ 11月22日の20時09分終了\nリーバイス デニム地のジーンズ その他（300円スタート）\nhttps://jp.mercari.com/item/m60501069791 #古着 #Levi's",
     "scheduled_at": "2026-11-22T12:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -1946,7 +1946,7 @@
     "text": "このディテール、見て！\nリーバイス デニム地のジーンズ その他（黒）\nワタリ26cm・裾幅18.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "ディテール型",
     "scheduled_at": "2026-11-22T04:23:59.341384+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -1959,7 +1959,7 @@
     "text": "えっ、リーバイスが300円スタート！？\nリーバイス デニム地のジーンズ その他\nワタリ26.5cm・裾幅21cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "価格訴求型",
     "scheduled_at": "2026-11-22T04:23:59.341606+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -1972,6 +1972,45 @@
     "text": "このカーハート、いくらから始まると思う？\nカーハート キャンバス地のペインターパンツ\nワタリ29cm・裾幅22cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Carhartt #カーハート #古着 #古着男子 #古着コーデ #ペインターパンツ\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-11-22T04:23:59.341827+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "6b2e2a2e",
+    "item_id": "m60501069791",
+    "platform": "tiktok",
+    "variant_key": "2026-11-21T14:48:45",
+    "video": "outputs/m60501069791/furugikun_m60501069791.mp4",
+    "text": "ヴィンテージのリーバイス！\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅21cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "希少性訴求型",
+    "scheduled_at": "2026-11-22T23:53:48.528283+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "4292f562",
+    "item_id": "m82096381518",
+    "platform": "tiktok",
+    "variant_key": "2026-11-21T14:51:30",
+    "video": "outputs/m82096381518/furugikun_m82096381518.mp4",
+    "text": "えっ、リーバイスが300円スタート！？\nリーバイス デニム地のジーンズ その他（黒）\nワタリ26cm・裾幅18.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-22T23:53:48.529645+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "1ad6d245",
+    "item_id": "m86970191400",
+    "platform": "tiktok",
+    "variant_key": "2026-11-21T14:53:48",
+    "video": "outputs/m86970191400/furugikun_m86970191400.mp4",
+    "text": "このリーバイス、いくらから始まると思う？\nリーバイス デニム地のジーンズ その他\nワタリ26.5cm・裾幅21cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-11-22T23:53:48.529957+09:00",
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
