@@ -1,3 +1,4 @@
 {"fetched_at": "2026-11-19T02:00:07+09:00", "status": "on_sale", "price_yen": 600, "start_price_yen": 300, "highest_bid_yen": 600, "total_bids": 3, "num_likes": 4, "num_comments": 0, "auction_end": "2026-11-20T20:12+09:00"}
 {"fetched_at": "2026-11-19T22:01:28+09:00", "status": "on_sale", "price_yen": 1300, "start_price_yen": 300, "highest_bid_yen": 1300, "total_bids": 10, "num_likes": 13, "num_comments": 0, "auction_end": "2026-11-20T20:12+09:00"}
 {"fetched_at": "2026-11-20T19:55:01+09:00", "status": "on_sale", "price_yen": 1800, "start_price_yen": 300, "highest_bid_yen": 1800, "total_bids": 14, "num_likes": 16, "num_comments": 1, "auction_end": "2026-11-20T20:12+09:00"}
+{"fetched_at": "2026-11-21T15:57:05+09:00", "status": "sold", "price_yen": 2100, "start_price_yen": 300, "highest_bid_yen": 2100, "total_bids": 17, "num_likes": 11, "num_comments": 1, "auction_end": null}
