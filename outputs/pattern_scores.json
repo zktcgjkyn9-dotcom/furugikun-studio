@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-22T21:45:11+09:00",
+  "updated": "2026-11-22T23:43:39+09:00",
   "by_pattern": {
     "rare": {
       "name": "希少性訴求型",
       "videos": 8,
       "posted": 0,
-      "sold": 5,
+      "sold": 6,
       "like_gain": 77,
       "bids": 165
     },
@@ -37,9 +37,9 @@
       "name": "問いかけ型",
       "videos": 17,
       "posted": 0,
-      "sold": 16,
-      "like_gain": 172,
-      "bids": 328
+      "sold": 17,
+      "like_gain": 168,
+      "bids": 331
     },
     "hype": {
       "name": "テンション型",
