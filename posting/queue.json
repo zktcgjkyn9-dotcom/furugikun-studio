@@ -2089,7 +2089,7 @@
     "text": "このリーバイス、いくらから始まると思う？\nリーバイス デニム地のジーンズ その他（黒）\nワタリ27cm・裾幅17cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-12-22T19:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2101,7 +2101,7 @@
     "angle": "お得",
     "text": "リーバイスを300円から狙えるチャンス。\nデニム地のジーンズ その他／ワタリ27cm・裾幅17cm\nhttps://jp.mercari.com/item/m29388754824 #古着 #Levi's",
     "scheduled_at": "2026-11-25T08:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2114,7 +2114,7 @@
     "text": "オークション、11月26日の20時09分まで！\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅17.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "オークション訴求型",
     "scheduled_at": "2026-12-23T19:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2126,7 +2126,7 @@
     "angle": "価格",
     "text": "【300円スタート】\nリーバイス デニム地のジーンズ その他\nこの価格から狙えます。\nhttps://jp.mercari.com/item/m94554180377 #古着 #Levi's",
     "scheduled_at": "2026-11-25T12:30:00+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2201,6 +2201,32 @@
     "angle": "終了告知",
     "text": "⏰ 11月26日の20時09分終了\nリーバイス デニム地のジーンズ その他（300円スタート）\nhttps://jp.mercari.com/item/m79458938927 #古着 #Levi's",
     "scheduled_at": "2026-11-26T12:30:00+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "bf7bdf98",
+    "item_id": "m29388754824",
+    "platform": "tiktok",
+    "variant_key": "2026-11-25T13:10:51",
+    "video": "outputs/m29388754824/furugikun_m29388754824.mp4",
+    "text": "えっ、リーバイスが300円スタート！？\nリーバイス デニム地のジーンズ その他（黒）\nワタリ27cm・裾幅17cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-26T22:12:58.561152+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "786675f2",
+    "item_id": "m94554180377",
+    "platform": "tiktok",
+    "variant_key": "2026-11-25T13:12:58",
+    "video": "outputs/m94554180377/furugikun_m94554180377.mp4",
+    "text": "このリーバイス、いくらから始まると思う？\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅17.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "問いかけ型",
+    "scheduled_at": "2026-11-26T22:12:58.563253+09:00",
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
