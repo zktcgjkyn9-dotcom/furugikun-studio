@@ -1,14 +1,6 @@
 {
-  "updated": "2026-11-26T09:56:30+09:00",
+  "updated": "2026-11-26T11:49:07+09:00",
   "by_pattern": {
-    "rare": {
-      "name": "希少性訴求型",
-      "videos": 8,
-      "posted": 0,
-      "sold": 6,
-      "like_gain": 77,
-      "bids": 165
-    },
     "comedy": {
       "name": "コメディ型",
       "videos": 2,
@@ -16,14 +8,6 @@
       "sold": 1,
       "like_gain": 18,
       "bids": 15
-    },
-    "question": {
-      "name": "問いかけ型",
-      "videos": 19,
-      "posted": 0,
-      "sold": 17,
-      "like_gain": 183,
-      "bids": 341
     },
     "price": {
       "name": "価格訴求型",
@@ -33,13 +17,29 @@
       "like_gain": 128,
       "bids": 269
     },
-    "detail": {
-      "name": "ディテール型",
-      "videos": 5,
+    "rare": {
+      "name": "希少性訴求型",
+      "videos": 8,
       "posted": 0,
-      "sold": 4,
-      "like_gain": 36,
-      "bids": 49
+      "sold": 6,
+      "like_gain": 77,
+      "bids": 165
+    },
+    "intro": {
+      "name": "商品紹介型",
+      "videos": 1,
+      "posted": 0,
+      "sold": 0,
+      "like_gain": 0,
+      "bids": 0
+    },
+    "question": {
+      "name": "問いかけ型",
+      "videos": 19,
+      "posted": 0,
+      "sold": 17,
+      "like_gain": 183,
+      "bids": 341
     },
     "auction": {
       "name": "オークション訴求型",
@@ -57,13 +57,13 @@
       "like_gain": 18,
       "bids": 24
     },
-    "intro": {
-      "name": "商品紹介型",
-      "videos": 1,
+    "detail": {
+      "name": "ディテール型",
+      "videos": 5,
       "posted": 0,
-      "sold": 0,
-      "like_gain": 0,
-      "bids": 0
+      "sold": 4,
+      "like_gain": 36,
+      "bids": 49
     }
   },
   "weights": {}
