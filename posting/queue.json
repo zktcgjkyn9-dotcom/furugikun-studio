@@ -2214,7 +2214,7 @@
     "text": "えっ、リーバイスが300円スタート！？\nリーバイス デニム地のジーンズ その他（黒）\nワタリ27cm・裾幅17cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "価格訴求型",
     "scheduled_at": "2026-11-26T22:12:58.561152+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2227,7 +2227,7 @@
     "text": "このリーバイス、いくらから始まると思う？\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅17.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-11-26T22:12:58.563253+09:00",
-    "status": "awaiting_approval",
+    "status": "superseded",
     "attempts": 0,
     "error": null
   },
@@ -2266,6 +2266,32 @@
     "text": "このリーバイス、いくらから始まると思う？\nリーバイス デニム地のジーンズ その他\nワタリ29cm・裾幅18.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
     "pattern": "問いかけ型",
     "scheduled_at": "2026-11-27T00:05:35.876190+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "098729dd",
+    "item_id": "m29388754824",
+    "platform": "tiktok",
+    "variant_key": "2026-11-26T10:58:44",
+    "video": "outputs/m29388754824/furugikun_m29388754824.mp4",
+    "text": "ヴィンテージのリーバイス！\nリーバイス デニム地のジーンズ その他（黒）\nワタリ27cm・裾幅17cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "希少性訴求型",
+    "scheduled_at": "2026-11-27T20:01:56.244681+09:00",
+    "status": "awaiting_approval",
+    "attempts": 0,
+    "error": null
+  },
+  {
+    "id": "0737efbe",
+    "item_id": "m94554180377",
+    "platform": "tiktok",
+    "variant_key": "2026-11-26T11:01:55",
+    "video": "outputs/m94554180377/furugikun_m94554180377.mp4",
+    "text": "えっ、リーバイスが300円スタート！？\nリーバイス デニム地のジーンズ その他\nワタリ28cm・裾幅17.5cm\n▶ 300円スタート\n気になったらプロフのリンクからチェック！\n\n#Levi's #リーバイス #古着 #古着男子 #古着コーデ #ジーンズその他\n音声：VOICEVOX:白上虎太郎",
+    "pattern": "価格訴求型",
+    "scheduled_at": "2026-11-27T20:01:56.247495+09:00",
     "status": "awaiting_approval",
     "attempts": 0,
     "error": null
