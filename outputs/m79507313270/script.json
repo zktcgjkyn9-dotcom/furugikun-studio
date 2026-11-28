@@ -1,6 +1,6 @@
 {
-  "pattern": "question",
-  "pattern_name": "問いかけ型",
+  "pattern": "price",
+  "pattern_name": "価格訴求型",
   "candidates": [
     "price",
     "question",
@@ -11,7 +11,7 @@
     "hype"
   ],
   "speaker": "白上虎太郎",
-  "total_sec": 22.52,
+  "total_sec": 25.93,
   "bgm": {
     "type": "auto",
     "bpm": 92,
@@ -19,21 +19,21 @@
   },
   "scenes": [
     {
-      "gesture": "think",
-      "kind": "think",
-      "voice": "このリーバイス、いくらから始まると思う？",
-      "caption": "このリーバイス\nいくらから？",
-      "expr": "困り顔",
-      "style": "ふつう",
-      "speed": 1.1,
-      "intonation": 1.4,
-      "volume": 1.0,
+      "gesture": "hook",
+      "kind": "hook",
+      "voice": "えっ、リーバイスが、300円スタート！？",
+      "caption": "リーバイスが\n300円スタート！？",
+      "expr": "驚き",
+      "style": "わーい",
+      "speed": 1.05,
+      "intonation": 1.6,
+      "volume": 1.15,
       "pause": 0.18,
       "telop": "big",
       "shot": "full",
       "sfx": "pop",
       "start": 0.35,
-      "end": 3.432666666666667
+      "end": 3.806
     },
     {
       "gesture": "point",
@@ -49,8 +49,8 @@
       "telop": "sub",
       "shot": "full2",
       "sfx": "whoosh",
-      "start": 3.612666666666667,
-      "end": 7.111333333333334
+      "start": 3.986,
+      "end": 7.4846666666666675
     },
     {
       "gesture": "explain",
@@ -66,14 +66,31 @@
       "telop": "sub",
       "shot": "full3",
       "sfx": null,
-      "start": 7.291333333333334,
-      "end": 12.102
+      "start": 7.664666666666667,
+      "end": 12.475333333333335
+    },
+    {
+      "gesture": "detail",
+      "kind": "detail",
+      "voice": "一押しは、黒デニムの、いい色落ち！",
+      "caption": "一押しは\n黒デニムの色落ち！",
+      "expr": "自信のある表情",
+      "style": "ふつう",
+      "speed": 1.1,
+      "intonation": 1.35,
+      "volume": 1.0,
+      "pause": 0.18,
+      "telop": "sub",
+      "shot": "knee",
+      "sfx": "shutter",
+      "start": 12.655333333333335,
+      "end": 15.812666666666669
     },
     {
       "gesture": "price",
       "kind": "price",
-      "voice": "正解は、300円スタート！",
-      "caption": "正解は\n¥300スタート！",
+      "voice": "この価格から狙えるチャンス、見逃せない！",
+      "caption": "¥300から\n狙える！",
       "expr": "驚き",
       "style": "わーい",
       "speed": 1.0,
@@ -83,30 +100,13 @@
       "telop": "price",
       "shot": "full",
       "sfx": "drum",
-      "start": 12.552,
-      "end": 15.08
+      "start": 16.262666666666668,
+      "end": 19.281333333333336
     },
     {
       "gesture": "call",
       "kind": "call",
-      "voice": "当たった人は、コメントで教えて！",
-      "caption": "当たったら\nコメントで！",
-      "expr": "笑顔",
-      "style": "わーい",
-      "speed": 1.1,
-      "intonation": 1.4,
-      "volume": 1.0,
-      "pause": 0.18,
-      "telop": "sub",
-      "shot": "full",
-      "sfx": null,
-      "start": 15.26,
-      "end": 17.692
-    },
-    {
-      "gesture": "call",
-      "kind": "call",
-      "voice": "気になったら、プロフのリンクからチェックしてね！",
+      "voice": "リーバイスをお得に狙うなら、ふるぎコム！プロフのリンクからチェック！",
       "caption": "プロフのリンクから\nチェック！",
       "expr": "笑顔",
       "style": "ふつう",
@@ -117,8 +117,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 17.942,
-      "end": 20.89666666666667
+      "start": 19.531333333333336,
+      "end": 24.310000000000002
     },
     {
       "gesture": "bye",
@@ -134,8 +134,8 @@
       "telop": "sub",
       "shot": "full",
       "sfx": null,
-      "start": 21.096666666666668,
-      "end": 21.715333333333334
+      "start": 24.51,
+      "end": 25.128666666666668
     }
   ],
   "chips": {
